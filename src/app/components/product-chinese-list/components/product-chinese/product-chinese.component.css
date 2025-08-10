@@ -1,0 +1,30 @@
+:host {
+  display: block;
+  transition: scale 0.3s linear;
+}
+
+
+.wraper {
+}
+
+.card {
+  height: 300px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: black solid 1px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+}
+
+img {
+  padding: 4px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

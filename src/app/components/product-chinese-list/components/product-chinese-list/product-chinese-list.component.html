@@ -1,0 +1,5 @@
+<div class="chinese-product">
+  @for (chineseProduct of chineseProducts$ | async; track chineseProduct.id) {
+    <app-product-chinese appHighLight [chineseProduct]="chineseProduct"></app-product-chinese>
+  }
+</div>
