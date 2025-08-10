@@ -1,0 +1,30 @@
+<div class="container-news">
+  <div class="new-products">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" *ngFor="let image of imagesPrev">
+          <img class="imageNewSets" [src]=image alt="slide image"/>
+        </div>
+      </div>
+
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+
+  </div>
+</div>
+<div class="container-sets">
+  <div class="block-one" appHighLight [routerLink]="['/products-list']" routerLinkActive="active">
+    English Sets
+    <img class="imageEng"
+         src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Flag_of_the_United_States_%28DoS_ECA_Color_Standard%29_%28Pantone%29.svg/250px-Flag_of_the_United_States_%28DoS_ECA_Color_Standard%29_%28Pantone%29.svg.png"
+         alt="">
+  </div>
+  <div class="block-two" appHighLight [routerLink]="['/chinese-main-page']" routerLinkActive="active">
+    Japanese Sets
+    <img class="imageChe"
+         src="https://static.vecteezy.com/system/resources/previews/014/635/922/non_2x/round-flag-of-china-illustration-vector.jpg"
+         alt="">
+  </div>
+</div>
+

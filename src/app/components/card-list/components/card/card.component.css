@@ -1,0 +1,53 @@
+:host {
+  display: block;
+  transition: scale 0.3s linear;
+
+}
+
+.data {
+  height: 100%;
+  min-height: 300px;
+}
+
+.example-card {
+  width: 240px;
+  height: 100%; /* Будет работать при использовании min-height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 300px;
+  border: 4px black solid;
+}
+
+.custom-header {
+  background-color: #333; /* Тёмно-серый */
+  color: white; /* Белый текст, чтобы было видно */
+  border-radius: 6px 6px 0 0; /* Радиус сверху, если хочешь скруглённый угол */
+  justify-content: center;
+}
+
+.custom-action {
+  background-color: #333; /* Тёмно-серый */
+  color: white; /* Белый текст, чтобы было видно */
+  border-radius: 0 0 6px 6px;
+  justify-content: center;
+  gap: 16px;
+}
+
+.custom-content {
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  background-color: #333; /* Тёмно-серый */
+  color: white; /* Белый текст, чтобы было видно */
+  flex-grow: 1;
+  /*border-radius: 6px 6px 0 0; !* Радиус сверху, если хочешь скруглённый угол *!*/
+}
+
+.title {
+  font-size: 18px;
+}
+
+.card-type {
+  position: relative;
+}

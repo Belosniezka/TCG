@@ -1,0 +1,32 @@
+
+.data {
+
+}
+
+.example-card {
+  width: 110px;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px black solid;
+}
+
+.custom-header {
+  background-color: #333;
+  color: white;
+  border-radius: 6px 6px 0 0; /* Радиус сверху, если хочешь скруглённый угол */
+  justify-content: center;
+}
+
+
+img[mat-card-image] {
+  padding: 6px;
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+
+.subtitle {
+  color: white;
+}

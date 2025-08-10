@@ -1,0 +1,28 @@
+<div class="page-cart">
+  <div class="total">
+    Total Quantity : {{ totalQty$ | async }}
+    |
+    Total Price : {{ totalPrice$ | async | currency }}
+  </div>
+
+  <div class="cart">
+    @for (cart of cart$ | async; track cart.id; let first = $first) {
+      @if (!first) {
+        <hr class="divider"/>
+      }
+      <div class="cart-item">
+        <app-cart-data [item]="cart"></app-cart-data>
+        <div class="action">
+          <p class="desck" (click)="redirectTo(cart.product.id)">{{ cart.product.name }}</p>
+          <div class="action-buttons">
+            <button (click)="addToCart(cart.product)" mat-flat-button>+</button>
+            <button (click)="minusFromCart(cart.product)" mat-flat-button>-</button>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+  <div class="order-button">
+    <button class="button" (click)="openSnackBar()" mat-flat-button>Order</button>
+  </div>
+</div>

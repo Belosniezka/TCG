@@ -1,0 +1,11 @@
+<div class="center-wrapper">
+  <app-card-filter  class="filter" #filtersNaprimer2></app-card-filter>
+  <div class="card-list">
+    @for (card of (cards$ | async) | cardFilter : (filtersNaprimer2.filtersArray$ | async); track card.id) {
+      <app-card appHighLight [card]="card" (addCard)="addToCart($event)"></app-card>
+    }
+  </div>
+
+<!--  <div>{{ data | json }}</div>-->
+</div>
+

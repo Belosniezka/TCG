@@ -1,0 +1,12 @@
+/*.cart {*/
+/*  display: flex;*/
+/*  flex-direction: row-reverse;*/
+/*}*/
+
+.product-list {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  border-bottom: black solid 2px;
+}
+

@@ -1,0 +1,13 @@
+<div class="data">
+  <mat-card class="example-card" appearance="outlined">
+    <img mat-card-image
+         src="{{card.image}}"
+         alt="Photo of Apple">
+    <mat-card-content class="custom-content">
+      <mat-card-title class="title">{{ card.name }}</mat-card-title>
+    </mat-card-content>
+    <mat-card-actions class="custom-action">{{ card.price | currency }}
+      <button (click)="addToCart(card)" mat-flat-button>Add</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

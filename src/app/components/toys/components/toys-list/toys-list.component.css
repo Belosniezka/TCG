@@ -1,0 +1,11 @@
+.toys {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  /*justify-content: center;*/
+  flex-direction: row;
+}
+
+.navigate {
+  background: lightsalmon;
+}

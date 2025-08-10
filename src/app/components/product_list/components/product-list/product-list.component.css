@@ -1,0 +1,34 @@
+
+
+.page {
+  display: flex;
+  /*flex-direction: row;*/
+  /*gap: 20px;*/
+  /*width: 100%;*/
+  /*max-width: 100%;*/
+  /*box-sizing: border-box;*/
+}
+
+
+.product-list {
+  /*border: 1px solid black;*/
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 6px;
+  /*margin-right: 3px;*/
+  gap: 30px;
+  justify-content: flex-start;
+
+}
+
+.navigate {
+  background: lightsalmon;
+}
+
+
+.filter {
+  /*border: 1px solid black;*/
+  width: 200px;
+  height: 200px;
+}
+

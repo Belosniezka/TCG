@@ -1,0 +1,9 @@
+<div class="accessories">
+  @for(accessor of accessories$ | async; track accessor.id) {
+    <app-accessories appHighLight [accessories]="accessor" (addAccessories)="addToCart($event)"></app-accessories>
+  }
+</div>
+<!--<mat-paginator [length]="100"-->
+<!--               [pageSize]="10"-->
+<!--               aria-label="Select page">-->
+<!--</mat-paginator>-->

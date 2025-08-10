@@ -1,0 +1,51 @@
+
+
+
+
+.example-product {
+  width: 400px;
+  display: flex;
+  /*border: 1px black solid;*/
+
+}
+
+.discription-card {
+  display: flex;
+  border: 4px black solid;
+
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.discription-mat {
+  width: 500px;
+
+}
+
+.panel {
+  border: 2px black solid;
+  border-radius: 16px ;
+  background-color: wheat;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+img {
+  width: 400px;
+  background-color: wheat;
+  box-shadow: 10px -5px 20px grey;
+}
+
+.button {
+  background-color: black;
+  color: white;
+}
+

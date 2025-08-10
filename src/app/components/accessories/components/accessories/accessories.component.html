@@ -1,0 +1,18 @@
+<div class="data">
+  <mat-card class="example-accessories" appearance="outlined">
+    <img mat-card-image
+         src="{{accessories.image}}"
+         alt="Photo of Apple">
+    <mat-card-content class="custom-content">
+      <mat-card-title class="title">{{ accessories.name }}</mat-card-title>
+      <mat-card-subtitle class="subtitle">{{ accessories.price | currency }}</mat-card-subtitle>
+    </mat-card-content>
+    <mat-card-actions class="custom-action">
+      <button (click)="addToCart(accessories)" mat-flat-button>Add</button>
+<!--      <button (click)="redirectTo(product.id)" mat-button>Info</button>-->
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+
+
