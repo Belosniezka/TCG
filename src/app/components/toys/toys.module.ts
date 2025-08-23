@@ -14,13 +14,26 @@ import {
 } from '@angular/material/card';
 import {SharedModule} from '../../SharedModule.module';
 import {HighLightDirective} from "../directiv/high-light.directive";
-
+import { ProductsModule } from '../product_list/products.module';
 
 @NgModule({
-    imports: [ToysRouting, SharedModule, AsyncPipe, CurrencyPipe, MatButton, MatCard, MatCardActions, MatCardContent, MatCardImage, MatCardSubtitle, MatCardTitle, HighLightDirective],
+  imports: [
+    ToysRouting,
+    SharedModule,
+    AsyncPipe,
+    CurrencyPipe,
+    MatButton,
+    MatCard,
+    MatCardActions,
+    MatCardContent,
+    MatCardImage,
+    MatCardSubtitle,
+    MatCardTitle,
+    HighLightDirective,
+    ProductsModule,
+  ],
   exports: [ToysComponent, ToysListComponent],
   declarations: [ToysComponent, ToysListComponent],
   providers: [],
 })
-export class ToysModule {
-}
+export class ToysModule {}

@@ -1,15 +1,15 @@
 
-:hover {
-  box-shadow: 1px 1px 4px grey;
-}
-
-
 .chinese-product {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 24px;
   padding: 10px;
+
+  :hover {
+    box-shadow: 1px 1px 4px grey;
+  }
+
 }

@@ -1,3 +1,8 @@
 <div class="mainPage">
-  <app-product-chinese-list></app-product-chinese-list>
+  <div class="filter">
+    <app-chinese-products-filter (filtersChange)="onFiltersChanged($event)"></app-chinese-products-filter>
+  </div>
+  <div class="chinese-page">
+    <app-product-chinese-list [filters]="activeFilters"></app-product-chinese-list>
+  </div>
 </div>

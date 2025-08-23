@@ -1,6 +1,6 @@
-<!--<app-filters #filterNaprime2></app-filters>-->
+<app-navigate></app-navigate>
 <div class="toys">
-  @for(toys of toys$ | async; track toys.id) {
+  @for (toys of toys$ | async; track toys.id) {
     <app-toys appHighLight [toys]="toys" (addToys)="addToCart($event)"></app-toys>
   }
 </div>

@@ -1,15 +1,3 @@
-/*.category {*/
-/*  font-size: 18px;*/
-/*}*/
-
-/*.filters-list {*/
-/*  display: flex;*/
-/*  justify-content: center;*/
-/*}*/
-
-/*.filter {*/
-/*  padding: 6px;*/
-/*}*/
 
 :host {
   display: block;
@@ -18,7 +6,7 @@
 }
 
 .filters-list {
-  display: block;               /* убираем флекс-центрирование */
+  display: block; /* убираем флекс-центрирование */
   width: 100%;
 }
 
@@ -28,7 +16,7 @@
 
 .filter {
   padding: 6px;
-  width: 100%;                  /* выравнивает чекбоксы */
+  width: 100%; /* выравнивает чекбоксы */
   box-sizing: border-box;
 }
 

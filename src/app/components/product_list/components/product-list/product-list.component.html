@@ -1,12 +1,14 @@
-
-<div class="page">
-<app-filters class="filter" #filtersNaprimer></app-filters>
-<div class="product-list">
-  @for (product of (products$ | async) | productFilter : (filtersNaprimer.filtersArray$ | async); track product.id){
-    <app-product appHighLight [product]="product" (addProduct)="addToCart($event)"
-                 (redirectToProduct)="redirectTo($event)"></app-product>
-  }
+<div class="navigate">
+  <app-navigate></app-navigate>
 </div>
+<div class="page">
+  <app-filters class="filter" #filtersNaprimer></app-filters>
+  <div class="product-list">
+    @for (product of (products$ | async) | productFilter : (filtersNaprimer.filtersArray$ | async); track product.id) {
+      <app-product appHighLight [product]="product" (addProduct)="addToCart($event)"
+                   (redirectToProduct)="redirectTo($event)"></app-product>
+    }
+  </div>
 </div>
 
 

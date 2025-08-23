@@ -3,32 +3,29 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {ProductsModule} from './components/product_list/products.module';
-import {MatButton, MatButtonModule} from '@angular/material/button';
-import {CartModule} from './components/cart/components/cart.module';
-import {CardsModule} from './components/card-list/cards.module';
-import {AuthorizationModule} from './components/authorization/authorization.module';
-import {MatMenu, MatMenuItem, MatMenuTrigger} from '@angular/material/menu';
-import {ReactiveFormsModule} from '@angular/forms';
-import {NavigateComponent} from './components/navigate/navigate.component';
+import { ProductsModule } from './components/product_list/products.module';
+import { MatButton, MatButtonModule } from '@angular/material/button';
+import { CartModule } from './components/cart/components/cart.module';
+import { CardsModule } from './components/card-list/cards.module';
+import { AuthorizationModule } from './components/authorization/authorization.module';
+import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CardFilterComponent } from './components/filters/components/card-filter/card-filter.component';
-import {MatCheckbox} from '@angular/material/checkbox';
-import {AccessoriesModule} from './components/accessories/accessories.module';
-import {ToysModule} from './components/toys/toys.module';
-import {UserModule} from './components/user/user.module';
-import {MatIconModule} from '@angular/material/icon';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
-import {MainPageModule} from './components/main-page/main-page.module';
-import {ProductsChineseModule} from './components/product-chinese-list/products-chinese.module';
+import { MatCheckbox } from '@angular/material/checkbox';
+import { AccessoriesModule } from './components/accessories/accessories.module';
+import { ToysModule } from './components/toys/toys.module';
+import { UserModule } from './components/user/user.module';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MainPageModule } from './components/main-page/main-page.module';
+import { ProductsChineseModule } from './components/product-chinese-list/products-chinese.module';
+import { NavigateComponent } from './components/navigate/navigate.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavigateComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -52,12 +49,10 @@ import {ProductsChineseModule} from './components/product-chinese-list/products-
     MatFormFieldModule,
     MatSelectModule,
     MainPageModule,
-    ProductsChineseModule
+    ProductsChineseModule,
   ],
   providers: [],
-  exports: [
-    CardFilterComponent
-  ],
-  bootstrap: [AppComponent]
+  exports: [CardFilterComponent],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

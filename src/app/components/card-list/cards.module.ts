@@ -19,12 +19,39 @@ import {MatCheckbox} from '@angular/material/checkbox';
 import {SharedModule} from '../../SharedModule.module';
 import {CardFilterPipe} from '../../pipes/card-filter-pipe.pipe';
 import {HighLightDirective} from "../directiv/high-light.directive";
+import { ProductsModule } from '../product_list/products.module';
 
 @NgModule({
-    imports: [SharedModule, CardsRouting, AsyncPipe, CurrencyPipe, MatButton, MatCard, MatCardActions, MatCardAvatar, MatCardContent, MatCardHeader, MatCardImage, MatCardSubtitle, MatCardTitle, MatMenuTrigger, MatMenu, ReactiveFormsModule, MatCheckbox, NgForOf, JsonPipe, HighLightDirective],
+  imports: [
+    SharedModule,
+    CardsRouting,
+    AsyncPipe,
+    CurrencyPipe,
+    MatButton,
+    MatCard,
+    MatCardActions,
+    MatCardAvatar,
+    MatCardContent,
+    MatCardHeader,
+    MatCardImage,
+    MatCardSubtitle,
+    MatCardTitle,
+    MatMenuTrigger,
+    MatMenu,
+    ReactiveFormsModule,
+    MatCheckbox,
+    NgForOf,
+    JsonPipe,
+    HighLightDirective,
+    ProductsModule,
+  ],
   exports: [CardListComponent, CardComponent, CardFilterComponent],
-  declarations: [CardListComponent, CardComponent, CardFilterComponent, CardFilterPipe],
+  declarations: [
+    CardListComponent,
+    CardComponent,
+    CardFilterComponent,
+    CardFilterPipe,
+  ],
   providers: [],
 })
-export class CardsModule {
-}
+export class CardsModule {}

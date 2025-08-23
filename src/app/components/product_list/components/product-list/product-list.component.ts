@@ -1,17 +1,21 @@
-import {ChangeDetectionStrategy, Component, inject, OnInit} from '@angular/core';
-import {Observable, of} from 'rxjs';
-import {Product, ShopService} from '../../../../services/services.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnInit,
+} from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { Product, ShopService } from '../../../../services/services.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
   standalone: false,
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductListComponent implements OnInit {
-
   public products$: Observable<Product[]> = of([]);
 
   constructor(
@@ -19,7 +23,6 @@ export class ProductListComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
   ) {}
-
 
   ngOnInit() {
     this.setProducts();
@@ -34,7 +37,6 @@ export class ProductListComponent implements OnInit {
   }
 
   public setProducts(): void {
-    this.products$ = this.shopService.getMockProducts()
+    this.products$ = this.shopService.getMockProducts();
   }
-
 }

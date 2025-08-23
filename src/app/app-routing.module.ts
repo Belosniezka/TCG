@@ -7,6 +7,13 @@ import {
 
 const routes: Routes = [
   {
+    path: 'main-page',
+    loadChildren: () =>
+      import('./components/main-page/main-page.module').then(
+        (m) => m.MainPageModule,
+      ),
+  },
+  {
     path: 'products-list',
     loadChildren: () =>
       import('./components/product_list/products.module').then(
@@ -50,13 +57,7 @@ const routes: Routes = [
       import('./components/user/user.module').then((m) => m.UserModule),
     canActivate: [isLoggedGuardFn],
   },
-  {
-    path: 'main-page',
-    loadChildren: () =>
-      import('./components/main-page/main-page.module').then(
-        (m) => m.MainPageModule,
-      ),
-  },
+
   {
     path: 'chinese-main-page',
     loadChildren: () =>

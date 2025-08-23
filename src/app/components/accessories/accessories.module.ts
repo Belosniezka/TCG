@@ -14,13 +14,26 @@ import {
 } from '@angular/material/card';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {HighLightDirective} from "../directiv/high-light.directive";
-
+import { ProductsModule } from '../product_list/products.module';
 
 @NgModule({
-    imports: [MatPaginatorModule, AccessoriesRouting, CurrencyPipe, MatButton, MatCard, MatCardActions, MatCardContent, MatCardImage, MatCardSubtitle, MatCardTitle, AsyncPipe, HighLightDirective],
-  exports: [AccessoriesComponent,AccessoriesListComponent],
-  declarations: [AccessoriesComponent,AccessoriesListComponent],
+  imports: [
+    MatPaginatorModule,
+    AccessoriesRouting,
+    CurrencyPipe,
+    MatButton,
+    MatCard,
+    MatCardActions,
+    MatCardContent,
+    MatCardImage,
+    MatCardSubtitle,
+    MatCardTitle,
+    AsyncPipe,
+    HighLightDirective,
+    ProductsModule,
+  ],
+  exports: [AccessoriesComponent, AccessoriesListComponent],
+  declarations: [AccessoriesComponent, AccessoriesListComponent],
   providers: [],
 })
-export class AccessoriesModule {
-}
+export class AccessoriesModule {}

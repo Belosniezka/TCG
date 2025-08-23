@@ -1,53 +1,31 @@
-<!--<div class="title">-->
-<!--  <div class="center-title">-->
-<!--    <button mat-button class="my-button" [routerLink]="['/products-list']" routerLinkActive="active">-->
-<!--      Combusken-TCG-->
-<!--    </button>-->
-<!--  </div>-->
-<!--  <div class="cart">-->
-<!--    <button mat-button [routerLink]="['/authorization']" routerLinkActive="active">Log in</button>-->
-<!--    <button class="cart-button" mat-button [routerLink]="['/cart']" routerLinkActive="active">Cart</button>-->
-<!--  </div>-->
-
-<!--</div>-->
-<!--<div class="free">-->
-<!--  <p>Free Shipping on all orders over 75$</p>-->
-<!--</div>-->
-
-<!--<div class="navigate">-->
-<!--<app-navigate ></app-navigate>-->
-<!--</div>-->
-<!--<div class="router">-->
-<!--<router-outlet></router-outlet>-->
-<!--</div>-->
-
-
 <mat-drawer-container class="example-container">
-  <mat-drawer #drawer position="end"  class="cart-content" style="border-radius: 0">
+  <mat-drawer #drawer position="end" class="cart-content" style="border-radius: 0">
     <app-cart class="cart-item" (redirectToProduct)="redirectTo($event)"></app-cart>
   </mat-drawer>
   <mat-drawer-content class="drower">
     <div class="head">
-    <div class="title">
-      <div class="center-title">
-        <button mat-button class="my-button" [routerLink]="['/main-page']" routerLinkActive="active" style="color: black">
-          Combusken-TCG
-        </button>
+      <div class="title">
+        <div class="center-title">
+          <button mat-button class="my-button" [routerLink]="['/main-page']" routerLinkActive="active"
+                  style="color: black">
+            Combusken-TCG
+          </button>
+        </div>
+        <div class="cart">
+          <button mat-button style="color: black" [routerLink]="['/authorization']" routerLinkActive="active">Log in
+          </button>
+          <!--        <button style="color: black"  mat-button [routerLink]="['/cart']" routerLinkActive="active">Cart</button>-->
+          <button style="color: black" mat-button="elevated" (click)="drawer.toggle()">Cart</button>
+        </div>
       </div>
-      <div class="cart">
-        <button mat-button style="color: black" [routerLink]="['/authorization']" routerLinkActive="active">Log in</button>
-<!--        <button style="color: black"  mat-button [routerLink]="['/cart']" routerLinkActive="active">Cart</button>-->
-        <button style="color: black" mat-button="elevated" (click)="drawer.toggle()">Cart</button>
+      <div class="free">
+        <p>Free Shipping on all orders over 75$</p>
       </div>
-    </div>
-    <div class="free">
-      <p>Free Shipping on all orders over 75$</p>
-    </div>
     </div>
 
-    <div class="navigate">
-      <app-navigate ></app-navigate>
-    </div>
+    <!--    <div class="navigate">-->
+    <!--      <app-navigate></app-navigate>-->
+    <!--    </div>-->
     <div class="router">
       <router-outlet></router-outlet>
     </div>

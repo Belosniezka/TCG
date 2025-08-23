@@ -1,5 +1,4 @@
 
-
 .page {
   display: flex;
   /*flex-direction: row;*/
@@ -18,11 +17,12 @@
   /*margin-right: 3px;*/
   gap: 30px;
   justify-content: flex-start;
-
+  margin-top: 10px;
 }
 
 .navigate {
-  background: lightsalmon;
+  background: wheat;
+
 }
 
 
@@ -30,5 +30,6 @@
   /*border: 1px solid black;*/
   width: 200px;
   height: 200px;
+  margin-top: 10px;
 }
 

@@ -725,16 +725,16 @@ export class ShopService {
       category: 'Departure Gift Box',
       categorySet: '',
     },
-    // {
-    //   id: 58,
-    //   name: 'PTCG Pokemon 10.0 Slim Pack (csv2C)',
-    //   description: 'PTCG Pokemon 10.0 Slim Pack (csv2C)',
-    //   price: 24.99,
-    //   image:
-    //     'https://redhatgamecard.com/cdn/shop/files/MBAN_ceb34304-474b-4179-a1cb-0f88fd0d4e3c.png?v=1752113956&width=1946',
-    //   category: 'Booster Box',
-    //   categorySet: '',
-    // },
+    {
+      id: 58,
+      name: 'PTCG Pokemon 10.0 Slim Pack (csv2C)',
+      description: 'PTCG Pokemon 10.0 Slim Pack (csv2C)',
+      price: 24.99,
+      image:
+        'https://redhatgamecard.com/cdn/shop/files/MBAN_ceb34304-474b-4179-a1cb-0f88fd0d4e3c.png?v=1752113956&width=1946',
+      category: 'Booster Pack',
+      categorySet: '',
+    },
     {
       id: 59,
       name: 'Pokemon "Collect 151 Journey" Booster Box Slim',
