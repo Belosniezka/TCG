@@ -1,0 +1,59 @@
+
+:host {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.filters-list {
+  display: block; /* убираем флекс-центрирование */
+  width: 100%;
+}
+
+.category {
+  font-size: 18px;
+}
+
+.filter {
+  padding: 6px;
+  width: 100%; /* выравнивает чекбоксы */
+  box-sizing: border-box;
+}
+
+mat-checkbox {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.menu-panel {
+  min-width: 200px !important;
+  max-width: 200px !important;
+  overflow-x: hidden;
+}
+
+.filters-list > button[mat-button] {
+  width: 200px;
+  min-width: 200px;
+  max-width: 200px;
+  box-sizing: border-box;
+  text-align: left;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 6px 16px;
+  font-weight: normal;
+  border: none;
+}
+
+.filters-list > button[mat-button]:hover,
+.filters-list > button[mat-button]:focus,
+.filters-list > button[mat-button]:active {
+  font-weight: normal !important;
+  padding: 6px 16px !important;
+}
+

@@ -1,0 +1,14 @@
+<div class="filters-list">
+  <button mat-button [matMenuTriggerFor]="menu" style="color: white; background-color: gray">
+    Category
+  </button>
+  <mat-menu #menu="matMenu" [formGroup]="filters" panelClass="menu-panel">
+    <div formGroupName="category">
+      <div *ngFor="let control of productsCategory; let i = index">
+        <mat-checkbox (click)="$event.stopPropagation()" [formControlName]="control" class="filter"
+                      labelPosition="before">{{ control }}
+        </mat-checkbox>
+      </div>
+    </div>
+  </mat-menu>
+</div>
