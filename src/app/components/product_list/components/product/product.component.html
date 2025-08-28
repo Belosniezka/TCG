@@ -1,16 +1,18 @@
 <div class="data">
   <mat-card class="example-product" appearance="outlined">
-  <img mat-card-image
-       src="{{product.image}}"
-       alt="Photo of Apple">
-  <mat-card-content class="custom-content">
+    <img mat-card-image
+         src="{{product.image}}"
+         alt="Photo of Apple">
+    <div class="content">
+      <div class="custom-content">
         <mat-card-title class="title">{{ product.name }}</mat-card-title>
         <mat-card-subtitle class="subtitle">{{ product.price | currency }}</mat-card-subtitle>
-  </mat-card-content>
-  <mat-card-actions class="custom-action">
-    <button (click)="addToCart(product)" mat-flat-button>Add</button>
-    <button (click)="redirectTo(product.id)" mat-button>Info</button>
-    <button (click)="openModal()" mat-button>Quick View</button>
-  </mat-card-actions>
-</mat-card>
+      </div>
+      <div class="custom-action">
+        <button (click)="addToCart(product)" mat-button>Add</button>
+        <button (click)="redirectTo(product.id)" mat-button>Info</button>
+        <button (click)="openModal(product.id)" mat-button>Quick View</button>
+      </div>
+    </div>
+  </mat-card>
 </div>

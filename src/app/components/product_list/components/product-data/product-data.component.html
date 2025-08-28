@@ -1,25 +1,27 @@
-<div *ngIf="product$ | async as product" class="card" >
+<div *ngIf="product$ | async as product" class="card">
   <div>
-  <mat-card  class="example-product">
-    <img mat-card-image
-         src="{{product.image}}"
-         alt="">
-</mat-card>
+    <mat-card class="example-product">
+      <img mat-card-image
+           src="{{product.image}}"
+           alt="">
+    </mat-card>
   </div>
 
-<div class="info">
-  <mat-accordion class="discription-mat">
-    <mat-expansion-panel class="panel">
-      <mat-expansion-panel-header>
-        <mat-panel-title> {{ product.name}} </mat-panel-title>
-<!--        <mat-panel-description> This is a summary of the content </mat-panel-description>-->
-      </mat-expansion-panel-header>
-      <p>{{product.description}}</p>
-    </mat-expansion-panel>
-  </mat-accordion>
+  <!--  <p>{{ product.description }}</p>-->
 
-  <button  class="button" (click)="addToCart(product)" mat-button >Add to cart</button>
-</div>
+  <div class="info">
+    <mat-accordion class="discription-mat">
+      <mat-expansion-panel class="panel">
+        <mat-expansion-panel-header>
+          <mat-panel-title> {{ product.name }}</mat-panel-title>
+          <!--        <mat-panel-description> This is a summary of the content </mat-panel-description>-->
+        </mat-expansion-panel-header>
+        <p>{{ product.description }}</p>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <button class="button" (click)="addToCart(product)" mat-button>Add to cart</button>
+  </div>
 
 
 </div>

@@ -428,7 +428,7 @@ export class ShopService {
         '    A code card for Pokémon TCG Live',
       price: 119.99,
       image:
-        'https://tcg.pokemon.com/assets/img/sv-expansions/151/highlights-product/en-us/sv3pt5-3d-mew-upc-sleeve-left-EN-2x.png',
+        'https://pokeshop.pl/images/mini/300px_Pokemon%20TCG%20151%20Ultra%20Premium%20Collection%20Mew%20%281%29.webp',
       category: 'Super Premium Collection',
       categorySet: '',
     },
@@ -519,7 +519,7 @@ export class ShopService {
       description: ' Red Apple',
       price: 54.99,
       image:
-        'https://tcg.pokemon.com/assets/img/sv-expansions/scarlet-violet/collections/en-us/p8908-sv01-3d-pc-etb-miraidon-en-2x.png',
+        'https://pokeshop.pl/images/mini/300px_SV01_3D_ETB_Kiraidon_3.webp',
       category: 'Elite Trainer Box',
       categorySet: '',
     },
@@ -559,7 +559,7 @@ export class ShopService {
       description: ' Red Apple, country: Poland',
       price: 54.99,
       image:
-        'https://tcg.pokemon.com/assets/img/sv-expansions/151/collections/en-us/P8972_SV03pt5_3D_PC_ETB_EN-2x.png',
+        'https://pokeshop.pl/images/mini/300px_Pokemon%20TCG%20Scarlet%20%26%20Violet%20151%20Elite%20Trainer%20Box.webp',
       category: 'Elite Trainer Box',
       categorySet: '',
     },

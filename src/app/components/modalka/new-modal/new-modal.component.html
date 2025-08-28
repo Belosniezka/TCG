@@ -1,16 +1,32 @@
-<h2 mat-dialog-title>Install Angular</h2>
-<mat-dialog-content class="mat-typography">
-<div class="page">
+<div class="modalka">
+  <ng-container *ngIf="productsSignal() as product; else loading">
 
-    <p>new-modal works!</p>
-    <div>
-      {{data | json}}
+    <h2 mat-dialog-title style="color: white">{{ product.name }}</h2>
 
-    </div>
+    <mat-dialog-content class="mat-typography">
+      <div class="img">
+        <img
+          src="{{product.image}}"
+          alt="Photo of Apple">
+      </div>
+      <div class="page">
+        <p>{{ product.price | currency }}</p>
+      </div>
+    </mat-dialog-content>
+
+
+    <mat-dialog-actions>
+      <div class="buttons">
+        <button mat-button>Add to Basket</button>
+      </div>
+    </mat-dialog-actions>
+  </ng-container>
+
+  <ng-template #loading>
+    <mat-dialog-content>
+      <p>Загрузка данных продукта...</p>
+    </mat-dialog-content>
+  </ng-template>
 </div>
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Knopka zakryt</button>
-<!--  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Order</button>-->
-</mat-dialog-actions>
 
+<button class="close" mat-button mat-dialog-close>x</button>
