@@ -10,14 +10,22 @@
           alt="Photo of Apple">
       </div>
       <div class="page">
-        <p>{{ product.price | currency }}</p>
+        <p class="price">{{ product.price * counter() | currency }}</p>
+        <p class="description">{{ product.description }}</p>
       </div>
     </mat-dialog-content>
 
 
     <mat-dialog-actions>
       <div class="buttons">
-        <button mat-button>Add to Basket</button>
+        <div class="qty">
+          <button (click)="minusCounter()" mat-flat-button>-</button>
+          <p style="color: white">Quantity:{{ counter() }}</p>
+          <button (click)="plusCounter()" mat-flat-button>+</button>
+        </div>
+        <div class="add-button">
+          <button (click)="addToCart(product)" mat-flat-button>Add to Basket</button>
+        </div>
       </div>
     </mat-dialog-actions>
   </ng-container>

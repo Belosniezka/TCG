@@ -30,7 +30,7 @@ export class ProductComponent {
     const dialogRef = this.dialog.open(NewModalComponent, {
       data: { id: productId },
       width: '400px',
-      height: '400px',
+      height: '500px',
     });
   }
 
