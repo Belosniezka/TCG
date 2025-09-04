@@ -6,48 +6,49 @@
 
 .data {
   height: 100%;
-  min-height: 300px;
+  width: 240px;
+
+  mat-card {
+    background-color: #333;
+    border: #333;
+  }
+;
 }
 
-.example-card {
-  width: 240px;
-  height: 100%; /* Будет работать при использовании min-height */
+
+.image {
+  height: 300px;
+  margin: 8px;
+  background-color: #333;
+  border-radius: 10px;
+
+  img[mat-card-image] {
+    padding: 4px;
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: 300px;
-  border: 4px black solid;
-}
-
-.custom-header {
-  background-color: #333; /* Тёмно-серый */
-  color: white; /* Белый текст, чтобы было видно */
-  border-radius: 6px 6px 0 0; /* Радиус сверху, если хочешь скруглённый угол */
-  justify-content: center;
-}
-
-.custom-action {
-  background-color: #333; /* Тёмно-серый */
-  color: white; /* Белый текст, чтобы было видно */
-  border-radius: 0 0 6px 6px;
-  justify-content: center;
-  gap: 16px;
+  height: 100%;
+  width: 100%;
 }
 
 .custom-content {
-  padding: 8px;
   display: flex;
-  justify-content: center;
-  background-color: #333; /* Тёмно-серый */
-  color: white; /* Белый текст, чтобы было видно */
-  flex-grow: 1;
-  /*border-radius: 6px 6px 0 0; !* Радиус сверху, если хочешь скруглённый угол *!*/
+  flex-direction: column;
+  align-items: center;
+  color: #e85d41;
+
+  .title {
+    text-align: center;
+  }
 }
 
-.title {
-  font-size: 18px;
+.custom-action button {
+  color: #e85d41;
 }
 
-.card-type {
-  position: relative;
-}

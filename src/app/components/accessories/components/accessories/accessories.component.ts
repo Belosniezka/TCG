@@ -1,14 +1,24 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {AccessoriesList, CardList, Product} from '../../../../services/services.service';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
+import {
+  AccessoriesList,
+  CardList,
+  Product,
+} from '../../../../services/services.service';
 
 @Component({
   selector: 'app-accessories',
   standalone: false,
   templateUrl: './accessories.component.html',
-  styleUrl: './accessories.component.css'
+  styleUrl: './accessories.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AccessoriesComponent {
-
   @Input() accessories!: AccessoriesList;
   @Output() addAccessories: EventEmitter<Product> = new EventEmitter<Product>();
 

@@ -1,4 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
 import {
   ChineseProduct,
   ShopService,
@@ -10,6 +15,7 @@ import { Observable, of } from 'rxjs';
   standalone: false,
   templateUrl: './product-chinese-list.component.html',
   styleUrl: './product-chinese-list.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductChineseListComponent implements OnInit {
   @Input() filters: string[] = [];

@@ -1,4 +1,11 @@
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  inject,
+  Input,
+  Output,
+} from '@angular/core';
 import { Product } from '../../../../services/services.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -9,6 +16,7 @@ import { NewModalComponent } from '../../../modalka/new-modal/new-modal.componen
   standalone: false,
   templateUrl: './product.component.html',
   styleUrl: './product.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductComponent {
   dialog = inject(MatDialog);

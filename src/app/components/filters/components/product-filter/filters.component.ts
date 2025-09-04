@@ -1,16 +1,21 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {map, Observable, startWith} from 'rxjs';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { map, Observable, startWith } from 'rxjs';
 
 @Component({
   selector: 'app-filters',
   standalone: false,
   templateUrl: './filters.component.html',
-  styleUrl: './filters.component.css'
+  styleUrl: './filters.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FiltersComponent implements OnInit {
-
-  public productsCategory: string[] = ['Boxed Sets', 'Super Premium Collection', 'Elite Trainer Box', 'Booster Packs'];
+  public productsCategory: string[] = [
+    'Boxed Sets',
+    'Super Premium Collection',
+    'Elite Trainer Box',
+    'Booster Packs',
+  ];
 
   public filters: FormGroup = this.fb.group({
     category: this.fb.group({}),

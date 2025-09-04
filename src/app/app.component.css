@@ -1,26 +1,25 @@
 
-
 .router {
-  /*display: flex;*/
-  /*justify-content: center;*/
   padding: 3px;
 }
 
 .free {
+  color: #e85d41;
   display: flex;
   justify-content: center;
-  border-bottom: black solid 2px;
-  }
+  border-bottom: white solid 2px;
+}
 
 .head {
-  background: linear-gradient(#ff6a14 , wheat) ;
+  /*background: linear-gradient(#ff6a14, wheat);*/
+  /*background: linear-gradient(#333, white);*/
+
 }
 
 .title {
   display: flex;
-  justify-content: center;      /* Центрирует содержимое */
-  align-items: center;          /* Выравнивание по вертикали */
-  /*background: linear-gradient(#ff6a14 , wheat) ;*/
+  justify-content: center;
+  align-items: center;
   padding: 10px 20px;
   position: relative;
 }
@@ -32,15 +31,13 @@
 }
 
 .cart {
-  margin-left: auto;            /* Отправляет cart в край справа */
+  margin-left: auto; /* Отправляет cart в край справа */
   display: flex;
   gap: 10px;
-
 }
 
 .my-button {
-  color: white;
-  /*background-color: black;*/
+  color: #e85d41;
   font-size: 30px;
   font-weight: bold;
   text-transform: uppercase;
@@ -48,7 +45,7 @@
 }
 
 .drower {
-  background: wheat;
+  /*background: wheat;*/
 }
 
 .cart-content {
@@ -58,6 +55,7 @@
 }
 
 .example-container {
+  background: linear-gradient(black, white);
   height: 100%;
   width: 100%;
 }

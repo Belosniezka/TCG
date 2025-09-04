@@ -1,4 +1,10 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { map, Observable, startWith } from 'rxjs';
 
@@ -7,6 +13,7 @@ import { map, Observable, startWith } from 'rxjs';
   standalone: false,
   templateUrl: './chinese-products-filter.component.html',
   styleUrl: './chinese-products-filter.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChineseProductsFilterComponent implements OnInit {
   @Output() filtersChange = new EventEmitter<string[]>();

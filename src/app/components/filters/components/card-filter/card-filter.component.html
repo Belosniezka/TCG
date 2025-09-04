@@ -1,6 +1,7 @@
 <div class="filters-list">
-  <button mat-button  [matMenuTriggerFor]="menu" style="color: white; background-color: gray">
-    Category Set  </button>
+  <button mat-button [matMenuTriggerFor]="menu" style="color: #e85d41; background-color: gray">
+    Category Set
+  </button>
   <mat-menu #menu="matMenu" [formGroup]="filters">
     <div formGroupName="category">
       <div *ngFor="let control of cardsCategorySet; let i = index">

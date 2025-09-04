@@ -1,7 +1,7 @@
 <div class="modalka">
   <ng-container *ngIf="productsSignal() as product; else loading">
 
-    <h2 mat-dialog-title style="color: white">{{ product.name }}</h2>
+    <h2 mat-dialog-title style="color: #e85d41">{{ product.name }}</h2>
 
     <mat-dialog-content class="mat-typography">
       <div class="img">
@@ -20,11 +20,11 @@
       <div class="buttons">
         <div class="qty">
           <button (click)="minusCounter()" mat-flat-button>-</button>
-          <p style="color: white">Quantity:{{ counter() }}</p>
+          <p style="color: #e85d41">Quantity:{{ counter() }}</p>
           <button (click)="plusCounter()" mat-flat-button>+</button>
         </div>
         <div class="add-button">
-          <button (click)="addToCart(product)" mat-flat-button>Add to Basket</button>
+          <button (click)="addToCart(product, counter())" mat-flat-button>Add to Basket</button>
         </div>
       </div>
     </mat-dialog-actions>
@@ -37,4 +37,4 @@
   </ng-template>
 </div>
 
-<button class="close" mat-button mat-dialog-close>x</button>
+<button class="close" mat-button mat-dialog-close style="color: royalblue">x</button>

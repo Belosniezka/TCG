@@ -1,6 +1,6 @@
 <div class="page-cart">
   <div class="total">
-    Total Quantity : {{ totalQty$ | async }}
+    Total Quantity : {{ total$ | async }}
     |
     Total Price : {{ totalPrice$ | async | currency }}
   </div>
@@ -16,6 +16,7 @@
           <p class="desck" (click)="redirectTo(cart.product.id)">{{ cart.product.name }}</p>
           <div class="action-buttons">
             <button (click)="addToCart(cart.product)" mat-flat-button>+</button>
+            <p>{{ cart.amount }}</p>
             <button (click)="minusFromCart(cart.product)" mat-flat-button>-</button>
           </div>
         </div>

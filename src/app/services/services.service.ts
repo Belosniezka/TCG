@@ -768,9 +768,9 @@ export class ShopService {
     },
   ];
 
-  private cartSubject: BehaviorSubject<Product[]> = new BehaviorSubject<
-    Product[]
-  >([]);
+  // private cartSubject: BehaviorSubject<Product[]> = new BehaviorSubject<
+  //   Product[]
+  // >([]);
 
   private newCartSubject: BehaviorSubject<NewCart> =
     new BehaviorSubject<NewCart>({});
@@ -782,10 +782,16 @@ export class ShopService {
     map((res) => Object.values(res).length),
   );
 
+  public readonly totalQty$: Observable<number> = this.newCart$.pipe(
+    map((res) =>
+      Object.values(res).reduce((sum, item) => sum + item.amount, 0),
+    ),
+  );
+
   public readonly totalPrice$: Observable<number> = this.newCart$.pipe(
     map((item) =>
       Object.values(item).reduce(
-        (total, item) => total + item.totalProductPrice,
+        (total, item) => total + item.amount * item.product.price,
         0,
       ),
     ),
@@ -831,7 +837,28 @@ export class ShopService {
       };
     }
     this.newCartSubject.next(updatedCart);
-    this.cartSubject.next([...this.cartSubject.value, product]);
+    // this.cartSubject.next([...this.cartSubject.value, product]);
+  }
+
+  addCartProductQty(product: Product, qty: number): void {
+    const updatedCart: NewCart = { ...this.newCartSubject.value };
+    if (!(product.id in updatedCart)) {
+      updatedCart[product.id] = {
+        amount: qty,
+        product: product,
+        id: product.id,
+        totalProductPrice: product.price,
+      };
+    } else {
+      const amount = updatedCart[product.id].amount + qty;
+      updatedCart[product.id] = {
+        ...updatedCart[product.id],
+        amount: amount,
+        totalProductPrice: amount * product.price,
+      };
+    }
+    this.newCartSubject.next(updatedCart);
+    // this.cartSubject.next([...this.cartSubject.value, product]);
   }
 
   removeFromCart(id: number): void {

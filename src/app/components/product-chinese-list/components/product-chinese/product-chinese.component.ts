@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { ChineseProduct } from '../../../../services/services.service';
 
 @Component({
@@ -6,6 +12,7 @@ import { ChineseProduct } from '../../../../services/services.service';
   standalone: false,
   templateUrl: './product-chinese.component.html',
   styleUrl: './product-chinese.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductChineseComponent {
   @Input() chineseProduct!: ChineseProduct;

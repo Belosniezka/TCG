@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { CardList, Product } from '../../../../services/services.service';
 
 @Component({
@@ -6,6 +13,7 @@ import { CardList, Product } from '../../../../services/services.service';
   standalone: false,
   templateUrl: './card.component.html',
   styleUrl: './card.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardComponent {
   @Input() card!: CardList;

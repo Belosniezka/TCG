@@ -1,17 +1,19 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {map, Observable, startWith} from 'rxjs';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { map, Observable, startWith } from 'rxjs';
 
 @Component({
   selector: 'app-card-filter',
   standalone: false,
   templateUrl: './card-filter.component.html',
-  styleUrl: './card-filter.component.css'
+  styleUrl: './card-filter.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardFilterComponent implements OnInit {
-
-
-  public cardsCategorySet: string[] = ['Prismatic Evolutions', 'Journey Together'];
+  public cardsCategorySet: string[] = [
+    'Prismatic Evolutions',
+    'Journey Together',
+  ];
 
   public filters: FormGroup = this.fb.group({
     category: this.fb.group({}),

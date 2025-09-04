@@ -1,17 +1,22 @@
-import {Component, Input} from '@angular/core';
-import {CartItem, Product, ShopService} from '../../../../services/services.service';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  CartItem,
+  Product,
+  ShopService,
+} from '../../../../services/services.service';
 
 @Component({
   selector: 'app-cart-data',
   standalone: false,
   templateUrl: './cart-data.component.html',
-  styleUrl: './cart-data.component.css'
+  styleUrl: './cart-data.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CartDataComponent {
   @Input({ required: true }) item!: CartItem;
 
-  constructor( private shopService: ShopService ) {
-  }
+  constructor(private shopService: ShopService) {}
+
   public removeCartProduct(id: number): void {
     this.shopService.removeFromCart(id);
   }

@@ -1,7 +1,12 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnInit,
+  signal,
+} from '@angular/core';
 import {
   MAT_DIALOG_DATA,
-  MatDialog,
   MatDialogModule,
   MatDialogRef,
 } from '@angular/material/dialog';
@@ -15,6 +20,7 @@ import { CurrencyPipe, NgIf } from '@angular/common';
   imports: [MatDialogModule, MatButtonModule, NgIf, CurrencyPipe],
   templateUrl: './new-modal.component.html',
   styleUrl: './new-modal.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NewModalComponent {
   private shopService = inject(ShopService);
@@ -29,8 +35,8 @@ export class NewModalComponent {
 
   public productsSignal = toSignal(this.products$);
 
-  public addToCart(product: Product): void {
-    this.shopService.addCartProduct(product);
+  public addToCart(product: Product, qty: number): void {
+    this.shopService.addCartProductQty(product, qty);
   }
 
   public plusCounter(): void {

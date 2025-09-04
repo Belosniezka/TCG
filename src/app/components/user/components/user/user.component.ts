@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-user',
   standalone: false,
   templateUrl: './user.component.html',
-  styleUrl: './user.component.css'
+  styleUrl: './user.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UserComponent {
-
-}
+export class UserComponent {}
