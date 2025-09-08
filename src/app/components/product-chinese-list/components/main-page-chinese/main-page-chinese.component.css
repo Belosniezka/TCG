@@ -1,3 +1,16 @@
 .mainPage {
   display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 40px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.filter {
+  display: flex;
+  height: 100%;
+  position: sticky;
+  top: 10px;
+  z-index: 1;
 }

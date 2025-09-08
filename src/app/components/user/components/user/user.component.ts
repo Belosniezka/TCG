@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -7,4 +8,13 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './user.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UserComponent {}
+export class UserComponent {
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+  ) {}
+
+  public redirectTo(): void {
+    void this.router.navigate([`my-orders`], { relativeTo: this.route });
+  }
+}

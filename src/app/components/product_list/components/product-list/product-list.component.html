@@ -1,7 +1,7 @@
-<div class="navigate">
-</div>
 <div class="page">
-  <app-filters class="filter" #filtersNaprimer></app-filters>
+  <div class="filter">
+    <app-filters #filtersNaprimer></app-filters>
+  </div>
   <div class="product-list">
     @for (product of (products$ | async) | productFilter : (filtersNaprimer.filtersArray$ | async); track product.id) {
       <app-product appHighLight [product]="product" (addProduct)="addToCart($event)"

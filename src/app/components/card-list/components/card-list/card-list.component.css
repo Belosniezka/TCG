@@ -4,6 +4,7 @@
   flex-direction: row;
   gap: 40px;
   margin-top: 10px;
+  width: 100%;
 }
 
 .card-list {
@@ -13,11 +14,14 @@
 }
 
 .filter {
+  display: flex;
   width: 200px;
-  min-width: 200px;
-  max-width: 200px;
-  flex-shrink: 0;
+  height: 100%;
   box-sizing: border-box;
-  position: relative;
+  position: sticky;
+  top: 10px;
+  z-index: 1;
+  padding: 10px;
 }
+
 

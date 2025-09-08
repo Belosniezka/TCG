@@ -1,5 +1,7 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { StorageService } from './storage.service';
 
 export interface Product {
   id: number;
@@ -499,7 +501,7 @@ export class ShopService {
       description: ' Red Apple, country: Poland',
       price: 54.99,
       image:
-        'https://tcg.pokemon.com/assets/img/sv-expansions/obsidian-flames/collections/en-us/p8979-sv03-3d-etb-en-2x.png',
+        'https://pokeshop.pl/images/mini/600px_Pokemon_TCG_Scarlet_Violet%E2%80%94Obsidian_Flames_Elite_Trainer_Box%20%281%292.webp',
       category: 'Elite Trainer Box',
       categorySet: '',
     },
@@ -797,7 +799,12 @@ export class ShopService {
     ),
   );
 
-  constructor() {}
+  constructor(private storage: StorageService) {
+    const savedCart = this.storage.get<NewCart>('cart');
+    if (savedCart) {
+      this.newCartSubject.next(savedCart);
+    }
+  }
 
   public getMockProducts(): Observable<Product[]> {
     return of(this.products);
@@ -837,6 +844,7 @@ export class ShopService {
       };
     }
     this.newCartSubject.next(updatedCart);
+    this.storage.set('cart', updatedCart);
     // this.cartSubject.next([...this.cartSubject.value, product]);
   }
 
@@ -868,6 +876,13 @@ export class ShopService {
     const updatedCart: NewCart = { ...this.newCartSubject.value };
     delete updatedCart[id];
     this.newCartSubject.next(updatedCart);
+    this.storage.set('cart', updatedCart);
+  }
+
+  removeAllFromCart(): void {
+    const updatedCart: NewCart = {};
+    this.newCartSubject.next(updatedCart);
+    this.storage.remove('cart');
   }
 
   removeOneFromCart(product: Product): void {
@@ -883,6 +898,7 @@ export class ShopService {
       delete updatedCart[product.id];
     }
     this.newCartSubject.next(updatedCart);
+    this.storage.set('cart', updatedCart);
   }
 
   public getProductsId(id: number): Observable<Product | undefined> {

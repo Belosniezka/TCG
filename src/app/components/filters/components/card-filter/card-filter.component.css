@@ -6,7 +6,7 @@
 }
 
 .filters-list {
-  display: block; /* убираем флекс-центрирование */
+  display: block;
   width: 100%;
 }
 

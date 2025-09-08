@@ -22,7 +22,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MainPageModule } from './components/main-page/main-page.module';
 import { ProductsChineseModule } from './components/product-chinese-list/products-chinese.module';
-import { NavigateComponent } from './components/navigate/navigate.component';
 
 @NgModule({
   declarations: [AppComponent],

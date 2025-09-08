@@ -4,6 +4,9 @@
     |
     Total Price : {{ totalPrice$ | async | currency }}
   </div>
+  <div class="clear-button">
+    <button (click)="removeAllFromCart()" mat-button>Clear</button>
+  </div>
 
   <div class="cart">
     @for (cart of cart$ | async; track cart.id; let first = $first) {

@@ -57,4 +57,8 @@ export class CartComponent {
   public redirectTo(id: number): void {
     this.redirectToProduct.emit(id);
   }
+
+  public removeAllFromCart(): void {
+    this.shopService.removeAllFromCart();
+  }
 }
