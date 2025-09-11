@@ -1,0 +1,107 @@
+<div class="checkout-page">
+  <!--  <div class="cart">-->
+  <!--    @for (item of cart$ | async; track item.id) {-->
+  <!--      <div class="cart-item">-->
+  <!--        <div class="image">-->
+  <!--          <mat-card appearance="outlined">-->
+  <!--            <img mat-card-image-->
+  <!--                 src="{{item.product.image}}"-->
+  <!--                 alt="Photo of Apple">-->
+  <!--          </mat-card>-->
+  <!--        </div>-->
+  <!--        <div class="description">-->
+  <!--          <p>{{ item.product.name }}</p>-->
+  <!--          <p>{{ item.product.price | currency }}</p>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    }-->
+  <!--  </div>-->
+
+  <div class="stepper">
+    <mat-horizontal-stepper [linear]="false" #stepper [animationDuration]="'500'">
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup" class="first-step">
+          <ng-template matStepLabel>Fill out your name</ng-template>
+          <div>
+            <mat-form-field>
+              <input matInput placeholder=" First name" formControlName="firstCtrl" required>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <input matInput placeholder=" Last name" formControlName="firstCtrl" required>
+            </mat-form-field>
+          </div>
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup" class="first-step">
+          <ng-template matStepLabel>Fill out your address</ng-template>
+          <mat-form-field>
+            <input matInput placeholder="Country" formControlName="secondCtrl" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="City" formControlName="secondCtrl" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Address" formControlName="secondCtrl" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Zip-Cod" formControlName="secondCtrl" required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <form class="four-step">
+          <ng-template matStepLabel>Total</ng-template>
+          <div class="cart">
+            @for (item of cart$ | async; track item.id) {
+              <div class="cart-item">
+                <div class="image">
+                  <mat-card appearance="outlined">
+                    <img mat-card-image
+                         src="{{item.product.image}}"
+                         alt="Photo of Apple">
+                  </mat-card>
+                </div>
+                <div class="description">
+                  <p>{{ item.product.name }}</p>
+                  <div class="action">
+                    <button mat-flat-button>-</button>
+                    <button mat-flat-button>+</button>
+                  </div>
+                  <p>{{ item.product.price | currency }}</p>
+                </div>
+              </div>
+            }
+          </div>
+
+          <div class="four-step-button">
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <div class="finish">
+          <p>
+            Payment
+          </p>
+        </div>
+        <div class="four-step-button">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Pay</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+</div>
+
+

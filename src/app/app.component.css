@@ -55,7 +55,7 @@
 }
 
 .example-container {
-  background: linear-gradient(black, white);
+  background: linear-gradient(black, grey);
   height: 100%;
   width: 100%;
 }

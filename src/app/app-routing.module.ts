@@ -65,6 +65,13 @@ const routes: Routes = [
         (m) => m.ProductsChineseModule,
       ),
   },
+  {
+    path: 'checkout',
+    loadChildren: () =>
+      import('./components/checkout/components/checkout.module').then(
+        (m) => m.CheckoutModule,
+      ),
+  },
 ];
 
 @NgModule({

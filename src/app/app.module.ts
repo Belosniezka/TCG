@@ -22,6 +22,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MainPageModule } from './components/main-page/main-page.module';
 import { ProductsChineseModule } from './components/product-chinese-list/products-chinese.module';
+import { CheckoutModule } from './components/checkout/components/checkout.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -49,6 +50,7 @@ import { ProductsChineseModule } from './components/product-chinese-list/product
     MatSelectModule,
     MainPageModule,
     ProductsChineseModule,
+    CheckoutModule,
   ],
   providers: [],
   exports: [CardFilterComponent],

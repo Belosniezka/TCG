@@ -27,6 +27,6 @@
     }
   </div>
   <div class="order-button">
-    <button class="button" (click)="openSnackBar()" mat-flat-button>Checkout</button>
+    <button class="button" mat-flat-button [routerLink]="['/checkout']" routerLinkActive="active">Checkout</button>
   </div>
 </div>
