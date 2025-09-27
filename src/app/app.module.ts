@@ -23,6 +23,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MainPageModule } from './components/main-page/main-page.module';
 import { ProductsChineseModule } from './components/product-chinese-list/products-chinese.module';
 import { CheckoutModule } from './components/checkout/components/checkout.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -51,6 +52,7 @@ import { CheckoutModule } from './components/checkout/components/checkout.module
     MainPageModule,
     ProductsChineseModule,
     CheckoutModule,
+    HttpClientModule,
   ],
   providers: [],
   exports: [CardFilterComponent],

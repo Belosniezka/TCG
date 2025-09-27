@@ -1,5 +1,7 @@
-import { Component, inject } from '@angular/core';
-import { TcgApiService } from '../../../../services/tcg-api.service';
+import { Component, inject, OnInit } from '@angular/core';
+import { UserService } from '../../../../services/user.service';
+import { map, Observable } from 'rxjs';
+import { Checkout } from '../../interfaces/checkout';
 
 @Component({
   selector: 'app-my-orders',
@@ -7,10 +9,8 @@ import { TcgApiService } from '../../../../services/tcg-api.service';
   templateUrl: './my-orders.component.html',
   styleUrl: './my-orders.component.css',
 })
-export class MyOrdersComponent {
-  // public tcgApi = inject(TcgApiService);
-
-  // public pokemonApi$ = this.tcgApi.getTcgApi();
+export class MyOrdersComponent implements OnInit {
+  public formData$?: Observable<Checkout[]>;
 
   public myOrders = [
     {
@@ -40,4 +40,10 @@ export class MyOrdersComponent {
       },
     },
   ];
+
+  constructor(private userService: UserService) {}
+
+  ngOnInit() {
+    this.formData$ = this.userService.checkout$;
+  }
 }

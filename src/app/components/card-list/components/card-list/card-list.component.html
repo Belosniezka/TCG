@@ -1,11 +1,9 @@
-<!--<app-navigate></app-navigate>-->
-
 <div class="center-wrapper">
   <div class="filter">
     <app-card-filter #filtersNaprimer2></app-card-filter>
   </div>
   <div class="card-list">
-    @for (card of (cards$ | async) | cardFilter : (filtersNaprimer2.filtersArray$ | async); track card.id) {
+    @for (card of cards$  | cardFilter : (filtersNaprimer2.filtersArray$ | async); track card.id) {
       <app-card appHighLight [card]="card" (addCard)="addToCart($event)"></app-card>
     }
   </div>

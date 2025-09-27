@@ -1,65 +1,47 @@
 <div class="checkout-page">
-  <!--  <div class="cart">-->
-  <!--    @for (item of cart$ | async; track item.id) {-->
-  <!--      <div class="cart-item">-->
-  <!--        <div class="image">-->
-  <!--          <mat-card appearance="outlined">-->
-  <!--            <img mat-card-image-->
-  <!--                 src="{{item.product.image}}"-->
-  <!--                 alt="Photo of Apple">-->
-  <!--          </mat-card>-->
-  <!--        </div>-->
-  <!--        <div class="description">-->
-  <!--          <p>{{ item.product.name }}</p>-->
-  <!--          <p>{{ item.product.price | currency }}</p>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    }-->
-  <!--  </div>-->
-
-  <div class="stepper">
+  <form class="stepper" [formGroup]="checkoutForm">
     <mat-horizontal-stepper [linear]="false" #stepper [animationDuration]="'500'">
-      <mat-step [stepControl]="firstFormGroup">
-        <form [formGroup]="firstFormGroup" class="first-step">
+      <mat-step formGroupName="personalInfo" [stepControl]="personalInfoForm">
+        <div class="first-step">
           <ng-template matStepLabel>Fill out your name</ng-template>
           <div>
             <mat-form-field>
-              <input matInput placeholder=" First name" formControlName="firstCtrl" required>
+              <input matInput placeholder=" First name" formControlName="firstName" required>
             </mat-form-field>
           </div>
           <div>
             <mat-form-field>
-              <input matInput placeholder=" Last name" formControlName="firstCtrl" required>
+              <input matInput placeholder=" Last name" formControlName="lastName" required>
             </mat-form-field>
           </div>
           <div>
-            <button mat-button matStepperNext>Next</button>
+            <button mat-button matStepperNext type="button">Next</button>
           </div>
-        </form>
+        </div>
       </mat-step>
-      <mat-step [stepControl]="secondFormGroup">
-        <form [formGroup]="secondFormGroup" class="first-step">
+      <mat-step formGroupName="delivery" [stepControl]="deliveryForm">
+        <div class="first-step">
           <ng-template matStepLabel>Fill out your address</ng-template>
           <mat-form-field>
-            <input matInput placeholder="Country" formControlName="secondCtrl" required>
+            <input matInput placeholder="Country" formControlName="country" required>
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="City" formControlName="secondCtrl" required>
+            <input matInput placeholder="City" formControlName="city" required>
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Address" formControlName="secondCtrl" required>
+            <input matInput placeholder="Address" formControlName="address" required>
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Zip-Cod" formControlName="secondCtrl" required>
+            <input matInput placeholder="Zip-Cod" formControlName="zipCode" required>
           </mat-form-field>
           <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
+            <button mat-button matStepperPrevious type="button">Back</button>
+            <button mat-button matStepperNext (click)="next()" type="button">Next</button>
           </div>
-        </form>
+        </div>
       </mat-step>
       <mat-step>
-        <form class="four-step">
+        <div class="four-step">
           <ng-template matStepLabel>Total</ng-template>
           <div class="cart">
             @for (item of cart$ | async; track item.id) {
@@ -84,10 +66,10 @@
           </div>
 
           <div class="four-step-button">
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
+            <button mat-button matStepperPrevious type="button">Back</button>
+            <button mat-button matStepperNext type="button">Next</button>
           </div>
-        </form>
+        </div>
       </mat-step>
       <mat-step>
         <div class="finish">
@@ -96,12 +78,12 @@
           </p>
         </div>
         <div class="four-step-button">
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button (click)="stepper.reset()">Pay</button>
+          <button mat-button matStepperPrevious type="button">Back</button>
+          <button mat-button (click)="stepper.reset()" type="button">Pay</button>
         </div>
       </mat-step>
     </mat-horizontal-stepper>
-  </div>
+  </form>
 </div>
 
 

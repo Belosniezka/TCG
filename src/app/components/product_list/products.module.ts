@@ -24,6 +24,7 @@ import { SharedModule } from '../../SharedModule.module';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { HighLightDirective } from '../directiv/high-light.directive';
 import { NavigateComponent } from '../navigate/navigate.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -49,6 +50,7 @@ import { NavigateComponent } from '../navigate/navigate.component';
     SharedModule,
     MatExpansionModule,
     HighLightDirective,
+    HttpClientModule,
   ],
   exports: [
     ProductListComponent,

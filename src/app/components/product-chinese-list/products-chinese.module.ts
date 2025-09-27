@@ -20,6 +20,7 @@ import { MatCheckbox } from '@angular/material/checkbox';
 import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChineseFilterPipe } from '../../pipes/chinese-filter-pipe.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -39,6 +40,7 @@ import { ChineseFilterPipe } from '../../pipes/chinese-filter-pipe.pipe';
     NgForOf,
     ReactiveFormsModule,
     MatMenuTrigger,
+    HttpClientModule,
   ],
   exports: [
     ProductChineseComponent,

@@ -1,4 +1,4 @@
-import { inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { StorageService } from './storage.service';
@@ -481,7 +481,7 @@ export class ShopService {
       description: ' Red Apple, country: Poland',
       price: 54.99,
       image:
-        'https://tcg.pokemon.com/assets/img/sv-expansions/paldean-fates/collections/en-us/p9537-sv04pt5-pc-3d-etb-outersleeve-en-2x.png',
+        'https://pokeshop.pl/images/mini/600px_pokemon-tcg-etb-paldean-fates.webp',
       category: 'Elite Trainer Box',
       categorySet: '',
     },
@@ -511,7 +511,7 @@ export class ShopService {
       description: ' Red Apple, country: Poland',
       price: 54.99,
       image:
-        'https://tcg.pokemon.com/assets/img/sv-expansions/paldea-evolved/collections/en-us/P8978_SV02_3D_ETB_EN-2x.png',
+        'https://pokeshop.pl/images/mini/600px_185-85366_SV02_3D_ETB_EN-2700x2573-9566ca9.webp',
       category: 'Elite Trainer Box',
       categorySet: '',
     },
@@ -531,7 +531,7 @@ export class ShopService {
       description: ' Red Apple, country: Poland',
       price: 54.99,
       image:
-        'https://tcg.pokemon.com/assets/img/sv-expansions/paradox-rift/collections/en-us/P8981_SV04_3D_PC_ETB_Iron_Valiant_Left_EN-2x.png',
+        'https://pokeshop.pl/images/mini/600px_Pokemon-Scarlet-and-Violet-Paradox-Rift-ETB-Iron-Valiant',
       category: 'Elite Trainer Box',
       categorySet: '',
     },
@@ -799,7 +799,10 @@ export class ShopService {
     ),
   );
 
-  constructor(private storage: StorageService) {
+  constructor(
+    private storage: StorageService,
+    private http: HttpClient,
+  ) {
     const savedCart = this.storage.get<NewCart>('cart');
     if (savedCart) {
       this.newCartSubject.next(savedCart);
@@ -807,15 +810,25 @@ export class ShopService {
   }
 
   public getMockProducts(): Observable<Product[]> {
-    return of(this.products);
+    return this.http.get<Product[]>('http://localhost:3000/api/products');
   }
 
+  // public createProduct(product: Product): Observable<Product> {
+  //   return this.http.post<Product>('http://localhost:3000/products/', product);
+  // }
+  //
+  // public deleteProduct(id: number): Observable<Product> {
+  //   return this.http.delete<Product>(`http://localhost:3000/products/${id}`);
+  // }
+
   public getMockChinese(): Observable<ChineseProduct[]> {
-    return of(this.chineseProduct);
+    return this.http.get<ChineseProduct[]>(
+      'http://localhost:3000/api/chinese-products',
+    );
   }
 
   public getMockCards(): Observable<CardList[]> {
-    return of(this.cards);
+    return this.http.get<CardList[]>('http://localhost:3000/api/cards');
   }
 
   public getMockAccessories(): Observable<AccessoriesList[]> {
@@ -901,7 +914,11 @@ export class ShopService {
     this.storage.set('cart', updatedCart);
   }
 
+  // public getProductsId(id: number): Observable<Product | undefined> {
+  //   return of(this.products.find((product) => product.id === id));
+  // }
+
   public getProductsId(id: number): Observable<Product | undefined> {
-    return of(this.products.find((product) => product.id === id));
+    return this.http.get<Product>(`http://localhost:3000/api/products/${id}`);
   }
 }

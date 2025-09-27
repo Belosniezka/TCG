@@ -1,0 +1,175 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "views": 200
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "products": [
+    {
+      "id": 32,
+      "name": "Pokémon TCG Scarlet & Violet : 151 SPC",
+      "description": "The Mythical Pokémon Mew holds many secrets of the Pokémon world, and usually only the luckiest of Trainers encounter it. But now you can add it to your own Pokédex along with even more Kanto Pokémon inside a bounty of booster packs from the Scarlet & Violet—151 expansion! Mew ex appears here as both playable and collectible metal cards, and you’ll also find a beautifully illustrated promo card featuring Mewtwo, a durable playmat and deck box, and more.\n\nThe Pokémon TCG: Scarlet & Violet—151 Ultra-Premium Collection includes:\n\n- 1 etched foil promo card featuring Mew ex\n- 1 full-art foil promo card featuring Mewtwo\n- 1 etched metal card featuring Mew ex\n- 1 playmat\n- 1 deck box\n- 1 metallic coin featuring Mew\n- 6 damage-counter dice\n- 2 plastic condition markers\n- 16 booster packs from Pokémon TCG: Scarlet & Violet—151\n- A code card for Pokémon TCG Live",
+      "price": 119.99,
+      "image": "https://pokeshop.pl/images/mini/300px_Pokemon%20TCG%20151%20Ultra%20Premium%20Collection%20Mew%20%281%29.webp",
+      "category": "Super Premium Collection",
+      "categorySet": ""
+    },
+    {
+      "id": 33,
+      "name": "Pokémon TCG Scarlet & Violet : Journey Together ETB",
+      "description": "Red Apple, country: Poland",
+      "price": 54.99,
+      "image": "https://tcg.pokemon.com/assets/img/sv-expansions/journey-together/collections/en-us/sv09-etb-en-2x.png",
+      "category": "Elite Trainer Box",
+      "categorySet": ""
+    },
+    {
+      "id": 34,
+      "name": "Pokémon TCG Scarlet & Violet : Twilight Masquerade ETB",
+      "description": "Welcome to the land of Kitakami, where people and Pokémon live harmoniously with nature. Folktales abound, but not all is as it seems… Uncover the mystery of the masked Legendary Pokémon Ogerpon, appearing as four fearsome types of Tera Pokémon ex, and team up with more newly discovered Pokémon, like Bloodmoon Ursaluna ex and Sinistcha ex. Growing in power, Greninja, Dragapult, and Magcargo dazzle as Tera Pokémon ex, and more ACE SPEC cards round out the festivities in the Pokémon TCG: Scarlet & Violet—Twilight Masquerade expansion!",
+      "price": 54.99,
+      "image": "https://tcg.pokemon.com/assets/img/sv-expansions/twilight-masquerade/collections/en-us/p9505-sv06-3d-pc-etb-outersleeve-right-en-2x.png",
+      "category": "Elite Trainer Box",
+      "categorySet": ""
+    },
+    {
+      "id": 35,
+      "name": "Prismatic Evolutions ETB",
+      "description": "Red Apple, country: Poland",
+      "price": 54.99,
+      "image": "https://tcg.pokemon.com/assets/img/sv-expansions/prismatic-evolutions/collections/en-us/sv8pt5-etb-pc-en-2x.png",
+      "category": "Elite Trainer Box",
+      "categorySet": ""
+    },
+    {
+      "id": 36,
+      "name": "Surging Sparks ETB",
+      "description": "Red Apple, country: Poland",
+      "price": 54.99,
+      "image": "https://www.pokemoncenter.com/images/DAMRoot/High/10000/P9508_191-85953_01.jpg",
+      "category": "Elite Trainer Box",
+      "categorySet": ""
+    },
+    {
+      "id": 37,
+      "name": "Paldean Fates ETB",
+      "description": "Red Apple, country: Poland",
+      "price": 54.99,
+      "image": "https://pokeshop.pl/images/mini/600px_pokemon-tcg-etb-paldean-fates.webp",
+      "category": "Elite Trainer Box",
+      "categorySet": ""
+    },
+    {
+      "id": 38,
+      "name": "Shrouded Fable ETB",
+      "description": "Red Apple, country: Poland",
+      "price": 54.99,
+      "image": "https://tcg.pokemon.com/assets/img/sv-expansions/shrouded-fable/collections/en-us/P9506_SV06pt5_3D_PC_ETB_OuterSleeve_Right_EN-2x.png",
+      "category": "Elite Trainer Box",
+      "categorySet": ""
+    },
+    {
+      "id": 39,
+      "name": "Obsidian Flames ETB",
+      "description": "Red Apple, country: Poland",
+      "price": 54.99,
+      "image": "https://pokeshop.pl/images/mini/600px_Pokemon_TCG_Scarlet_Violet%E2%80%94Obsidian_Flames_Elite_Trainer_Box%20%281%292.webp",
+      "category": "Elite Trainer Box",
+      "categorySet": ""
+    },
+    {
+      "id": 40,
+      "name": "Paldea Evolved ETB",
+      "description": "Red Apple, country: Poland",
+      "price": 54.99,
+      "image": "https://pokeshop.pl/images/mini/600px_185-85366_SV02_3D_ETB_EN-2700x2573-9566ca9.webp",
+      "category": "Elite Trainer Box",
+      "categorySet": ""
+    },
+    {
+      "id": 41,
+      "name": "Scarlet & Violet ETB",
+      "description": "Red Apple",
+      "price": 54.99,
+      "image": "https://pokeshop.pl/images/mini/300px_SV01_3D_ETB_Kiraidon_3.webp",
+      "category": "Elite Trainer Box",
+      "categorySet": ""
+    },
+    {
+      "id": 42,
+      "name": "Paradox Rift ETB",
+      "description": "Red Apple, country: Poland",
+      "price": 54.99,
+      "image": "https://pokeshop.pl/images/mini/600px_Pokemon-Scarlet-and-Violet-Paradox-Rift-ETB-Iron-Valiant",
+      "category": "Elite Trainer Box",
+      "categorySet": ""
+    },
+    {
+      "id": 43,
+      "name": "Stellar Crown ETB",
+      "description": "Red Apple, country: Poland",
+      "price": 54.99,
+      "image": "https://tcg.pokemon.com/assets/img/sv-expansions/stellar-crown/collections/en-us/sv07-etb-en-2x.png",
+      "category": "Elite Trainer Box",
+      "categorySet": ""
+    },
+    {
+      "id": 44,
+      "name": "Temporal Forces ETB",
+      "description": "Red Apple, country: Poland",
+      "price": 54.99,
+      "image": "https://tcg.pokemon.com/assets/img/sv-expansions/temporal-forces/collections/en-us/P9504_SV05_3D_PCenter_ETB_Walking_Wake_Right_EN-2x.png",
+      "category": "Elite Trainer Box",
+      "categorySet": ""
+    },
+    {
+      "id": 45,
+      "name": "151 ETB",
+      "description": "Red Apple, country: Poland",
+      "price": 54.99,
+      "image": "https://pokeshop.pl/images/mini/300px_Pokemon%20TCG%20Scarlet%20%26%20Violet%20151%20Elite%20Trainer%20Box.webp",
+      "category": "Elite Trainer Box",
+      "categorySet": ""
+    },
+    {
+      "id": 46,
+      "name": "Paradox Rift Booster",
+      "description": "Red Apple, country: Poland",
+      "price": 4.99,
+      "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P8981_187-85399-BULK_01.jpg",
+      "category": "Booster Packs",
+      "categorySet": ""
+    },
+    {
+      "id": 47,
+      "name": "Temporal Forces Booster",
+      "description": "Red Apple, country: Poland",
+      "price": 4.99,
+      "image": "https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P9504_188-85981-BULK_01.jpg",
+      "category": "Booster Packs",
+      "categorySet": ""
+    }
+  ]
+}

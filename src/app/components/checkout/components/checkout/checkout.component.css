@@ -51,7 +51,7 @@
 
 .image {
   width: 120px;
-  height: 120px;
+  height: 160px;
   margin: 4px;
 
   img [mat-card-image] {

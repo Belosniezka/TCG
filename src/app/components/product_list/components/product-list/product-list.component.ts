@@ -7,6 +7,7 @@ import {
 import { Observable, of } from 'rxjs';
 import { Product, ShopService } from '../../../../services/services.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { dateTimestampProvider } from 'rxjs/internal/scheduler/dateTimestampProvider';
 
 @Component({
   selector: 'app-product-list',
@@ -16,7 +17,9 @@ import { ActivatedRoute, Router } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductListComponent implements OnInit {
-  public products$: Observable<Product[]> = of([]);
+  // public products$: Observable<Product[]> = of([]);
+
+  public products$: Product[] = [];
 
   constructor(
     private shopService: ShopService,
@@ -37,6 +40,8 @@ export class ProductListComponent implements OnInit {
   }
 
   public setProducts(): void {
-    this.products$ = this.shopService.getMockProducts();
+    this.shopService.getMockProducts().subscribe((data) => {
+      this.products$ = data;
+    });
   }
 }

@@ -1,54 +1,54 @@
-  <p class="title">LOGIN</p>
+<p class="title">LOGIN</p>
 <div [formGroup]="myForm">
-<div class="authorization">
-  <div class="example-email">
-  <mat-form-field>
-    <mat-label for="email">Enter your email</mat-label>
-    <input matInput [type]="hide() ? 'password' : 'text'"  type="email" id="login" formControlName="email"/>
-    @if (!myForm.controls.email.valid && myForm.controls.email.touched) {
-      <small style="color: red">Please fill in</small>
-    }
-    <button
-      mat-icon-button
-      matSuffix
-      (click)="clickEvent($event)"
-      [attr.aria-label]="'Hide password'"
-      [attr.aria-pressed]="hide()"
-    >
-      <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
-    </button>
-  </mat-form-field>
-</div>
-</div>
+  <div class="authorization">
+    <div class="example-email">
+      <mat-form-field>
+        <mat-label for="email">Enter your email</mat-label>
+        <input matInput type="email" id="email" formControlName="email"/>
+        @if (!myForm.controls.email.valid && myForm.controls.email.touched) {
+          <small style="color: red">Please fill in</small>
+        }
+        <!--    <button-->
+        <!--      mat-icon-button-->
+        <!--      matSuffix-->
+        <!--      (click)="clickEvent($event)"-->
+        <!--      [attr.aria-label]="'Hide password'"-->
+        <!--      [attr.aria-pressed]="hide()"-->
+        <!--    >-->
+        <!--      <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>-->
+        <!--    </button>-->
+      </mat-form-field>
+    </div>
+  </div>
 
-<div class="authorization-two">
-<div class="example-password">
-  <mat-form-field>
-    <mat-label for="password">Enter your password</mat-label>
-    <input matInput [type]="hide() ? 'password' : 'text'"  type="password" id="password" formControlName="password"/>
-    @if (!myForm.controls.password.valid && myForm.controls.password.touched) {
-      <small style="color: red">Please fill in</small>
-    }
-    <button
-      mat-icon-button
-      matSuffix
-      (click)="clickEvent($event)"
-      [attr.aria-label]="'Hide password'"
-      [attr.aria-pressed]="hide()"
-    >
-      <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
-    </button>
-  </mat-form-field>
-  <div class="create">
-    <button mat-button [routerLink]="['/new-account']" routerLinkActive="active">
-      Create account
+  <div class="authorization-two">
+    <div class="example-password">
+      <mat-form-field>
+        <mat-label for="password">Enter your password</mat-label>
+        <input matInput [type]="hide() ? 'password' : 'text'" type="password" id="password" formControlName="password"/>
+        @if (!myForm.controls.password.valid && myForm.controls.password.touched) {
+          <small style="color: red">Please fill in</small>
+        }
+        <!--        <button-->
+        <!--          mat-icon-button-->
+        <!--          matSuffix-->
+        <!--          (click)="clickEvent($event)"-->
+        <!--          [attr.aria-label]="'Hide password'"-->
+        <!--          [attr.aria-pressed]="hide()"-->
+        <!--        >-->
+        <!--          <mat-icon>{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>-->
+        <!--        </button>-->
+      </mat-form-field>
+      <div class="create">
+        <button mat-button [routerLink]="['create-user']" routerLinkActive="active">
+          Create account
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="sign-in">
+    <button mat-fab extended (click)="login()">
+      SIGN IN
     </button>
   </div>
-</div>
-</div>
-<div class="sign-in">
-<button mat-fab extended (click)="login()">
-  SIGN IN
-</button>
-</div>
 </div>

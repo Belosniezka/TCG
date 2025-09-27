@@ -3,7 +3,7 @@
     <app-filters #filtersNaprimer></app-filters>
   </div>
   <div class="product-list">
-    @for (product of (products$ | async) | productFilter : (filtersNaprimer.filtersArray$ | async); track product.id) {
+    @for (product of products$ | productFilter : (filtersNaprimer.filtersArray$ | async); track product.id) {
       <app-product appHighLight [product]="product" (addProduct)="addToCart($event)"
                    (redirectToProduct)="redirectTo($event)"></app-product>
     }

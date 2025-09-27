@@ -1,18 +1,38 @@
-<div class="my-orders-page">
-  @for (order of myOrders; track order.id) {
-    <div class="order">
-      <h1>Number of order : {{ order.number }}</h1>
-      <h2>Date : {{ order.date }}</h2>
-      <p> Status : {{ order.status }}</p>
-      <div class="address">
-        <p>Address :
-        <div>{{ order.address.city }};</div>
-        <div>{{ order.address.street }};</div>
-        <div>{{ order.address.name }};</div>
-        <div>{{ order.address.country }};</div>
-        <div>{{ order.address.zipCode }};</div>
+<!--<div class="my-orders-page">-->
+<!--  @for (order of myOrders; track order.id) {-->
+<!--    <div class="order">-->
+<!--      <h1>Number of order : {{ order.number }}</h1>-->
+<!--      <h2>Date : {{ order.date }}</h2>-->
+<!--      <p> Status : {{ order.status }}</p>-->
+<!--      <div class="address">-->
+<!--        <p>Address :-->
+<!--        <div>{{ order.address.city }};</div>-->
+<!--        <div>{{ order.address.street }};</div>-->
+<!--        <div>{{ order.address.name }};</div>-->
+<!--        <div>{{ order.address.country }};</div>-->
+<!--        <div>{{ order.address.zipCode }};</div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  }-->
+
+<!--</div>-->
+
+
+@if (formData$ | async; as formData) {
+  @for (order of formData; track order) {
+    <div>
+      <div class="order">
+        <h1>Number of order : {{ formData.length }}</h1>
+        <h2>Date : {{ order.date | date }} </h2>
+        <p> Status : shipped</p>
+        <div class="address">
+          <div>Country : {{ order.delivery.country }}</div>
+          <div>City : {{ order.delivery.city }}</div>
+          <div>Address : {{ order.delivery.address }}</div>
+          <div> Name : {{ order.personalInfo.firstName + ' ' + order.personalInfo.lastName }}</div>
+          <div>Zip Code : {{ order.delivery.zipCode }}</div>
+        </div>
       </div>
     </div>
   }
-
-</div>
+}
