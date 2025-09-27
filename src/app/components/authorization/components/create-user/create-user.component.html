@@ -1,0 +1,24 @@
+<div class="create-user-page" [formGroup]="createUserForm">
+  <h1>Create Account</h1>
+  <div class="email-form">
+    <mat-form-field>
+      <mat-label for="email">Enter your email</mat-label>
+      <input matInput type="email" id="email" formControlName="email">
+      @if (!createUserForm.controls['email'].valid && createUserForm.controls['email'].touched) {
+        <small style="color: red">Please fill in</small>
+      }
+    </mat-form-field>
+  </div>
+  <div class="password-form">
+    <mat-form-field>
+      <mat-label for="email">Create your password</mat-label>
+      <input matInput type="password" id="password" formControlName="password">
+      @if (!createUserForm.controls['password'].valid && createUserForm.controls['password'].touched) {
+        <small style="color: red">Please fill in</small>
+      }
+    </mat-form-field>
+  </div>
+  <div class="submit-button">
+    <button mat-flat-button (click)="onSubmit()">Create</button>
+  </div>
+</div>
