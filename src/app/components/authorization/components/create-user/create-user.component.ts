@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { UserService } from '../../../../services/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -7,9 +7,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   standalone: false,
   templateUrl: './create-user.component.html',
   styleUrl: './create-user.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CreateUser {
   private fb = inject(FormBuilder);
+
+  public isAccountCreated = false;
+  public loading = false;
 
   public createUserForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -20,14 +24,15 @@ export class CreateUser {
 
   public onSubmit() {
     if (this.createUserForm.valid) {
+      this.loading = true;
       this.userService.createUser(this.createUserForm.value).subscribe({
-        next: (res) => {
-          console.log('User created:', res);
-          // здесь можно показать уведомление или перенаправить
+        next: () => {
+          this.isAccountCreated = true;
+          this.loading = false;
         },
-        error: (err) => {
-          console.error('Error creating user:', err);
-          // обработка ошибки
+        error: () => {
+          alert('Error creating user');
+          this.loading = false;
         },
       });
     }

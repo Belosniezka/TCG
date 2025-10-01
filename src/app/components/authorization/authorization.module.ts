@@ -16,6 +16,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CreateUser } from './components/create-user/create-user.component';
+import { MatDialogContent } from '@angular/material/dialog';
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import { CreateUser } from './components/create-user/create-user.component';
     MatFabButton,
     ReactiveFormsModule,
     MatButton,
+    MatDialogContent,
   ],
   exports: [AuthorizationComponent, CreateUser],
   declarations: [AuthorizationComponent, CreateUser],

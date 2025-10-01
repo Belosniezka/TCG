@@ -1,7 +1,18 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  signal,
+} from '@angular/core';
 import { UserService } from '../../../../services/user.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-authorization',
@@ -11,6 +22,8 @@ import { Router } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuthorizationComponent {
+  private fb = inject(FormBuilder);
+
   constructor(
     private _userService: UserService,
     private router: Router,
@@ -23,23 +36,26 @@ export class AuthorizationComponent {
     event.stopPropagation();
   }
 
-  public myForm = new FormGroup({
-    // login: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required]),
+  public myForm: FormGroup = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', Validators.required],
   });
 
-  // public login(): void {
-  //   if (this.myForm.valid) {
-  //     this._userService.login()
-  //     void this.router.navigate(['/user'])
-  //   } else {
-  //     alert('Please fill in all the fields');
-  //   }
-  // }
-
   public login(): void {
-    this._userService.login();
-    void this.router.navigate(['/user']);
+    if (this.myForm.valid) {
+      this._userService
+        .login(this.myForm.value)
+        .pipe(tap(() => this.router.navigate(['/user'])))
+        .subscribe({
+          error: () => {
+            alert('Please fill in all the fields');
+          },
+        });
+    }
+
+    // public login(): void {
+    //   this._userService.login();
+    //   void this.router.navigate(['/user']);
+    // }
   }
 }

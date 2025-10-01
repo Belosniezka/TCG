@@ -18,7 +18,9 @@
   display: flex;
   justify-content: center;
   background: white;
+  
 }
+
 .example-password mat-form-field + mat-form-field {
   display: flex;
   flex-direction: column;
@@ -60,4 +62,10 @@ input.example-right-align {
 .create {
   display: flex;
   justify-content: center;
+  margin-bottom: 16px;
+
+  button {
+    background-color: #333;
+    color: tomato;
+  }
 }

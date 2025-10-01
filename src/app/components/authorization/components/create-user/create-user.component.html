@@ -19,6 +19,22 @@
     </mat-form-field>
   </div>
   <div class="submit-button">
-    <button mat-flat-button (click)="onSubmit()">Create</button>
+    <button mat-flat-button (click)="onSubmit()" [disabled]="loading">
+      @if (loading) {
+        Creating...
+      } @else {
+        Create
+      }
+    </button>
   </div>
+
+  @if (isAccountCreated) {
+    <div class="success-message">
+      <p style="color: tomato;">✅ Account was successfully created!</p>
+      <button mat-stroked-button color="accent" [routerLink]="['/authorization']">
+        Go to Login
+      </button>
+    </div>
+  }
 </div>
+

@@ -9,6 +9,19 @@ export interface UserDto {
   password: string;
 }
 
+export interface IResponseUser {
+  email: string;
+  password: string;
+  id: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface IResponseUserData {
+  token: string;
+  user: IResponseUser;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -26,12 +39,20 @@ export class UserService {
 
   constructor(private _http: HttpClient) {}
 
-  public createUser(userData: UserDto) {
-    return this._http.post(this.apiUrl, userData);
+  // public createUser(userData: UserDto) {
+  //   return this._http.post(this.apiUrl, userData);
+  // }
+
+  public createUser(userData: UserDto): Observable<IResponseUserData> {
+    return this._http.post<IResponseUserData>(this.apiUrl, userData);
   }
 
-  public login(): void {
-    this.isUserLogged.next(true);
+  // public login(): void {
+  //   this.isUserLogged.next(true);
+  // }
+
+  public login(user: UserDto) {
+    return this._http.post('http://localhost:3000/api/auth/login', user);
   }
 
   addToCheckout(form: FormGroup): void {
