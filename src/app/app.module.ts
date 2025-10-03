@@ -23,7 +23,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MainPageModule } from './components/main-page/main-page.module';
 import { ProductsChineseModule } from './components/product-chinese-list/products-chinese.module';
 import { CheckoutModule } from './components/checkout/components/checkout.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from './components/authorization/interceptor/auth.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -54,7 +55,13 @@ import { HttpClientModule } from '@angular/common/http';
     CheckoutModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   exports: [CardFilterComponent],
   bootstrap: [AppComponent],
 })

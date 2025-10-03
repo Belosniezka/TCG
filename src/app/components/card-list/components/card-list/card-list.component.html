@@ -2,8 +2,8 @@
   <div class="filter">
     <app-card-filter #filtersNaprimer2></app-card-filter>
   </div>
-  <div class="card-list">
-    @for (card of cards$  | cardFilter : (filtersNaprimer2.filtersArray$ | async); track card.id) {
+  <div class="card-list" *ngIf="cards$ | async as cards">
+    @for (card of cards  | cardFilter : (filtersNaprimer2.filtersArray$ | async); track card.id) {
       <app-card appHighLight [card]="card" (addCard)="addToCart($event)"></app-card>
     }
   </div>

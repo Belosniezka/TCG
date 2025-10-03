@@ -4,7 +4,7 @@ import { ProductChineseComponent } from './components/product-chinese/product-ch
 import { ProductChineseListComponent } from './components/product-chinese-list/product-chinese-list.component';
 import { MainPageChineseComponent } from './components/main-page-chinese/main-page-chinese.component';
 import { ProductChineseData } from './components/product-chinese-data/product-chinese-data.component';
-import { AsyncPipe, CurrencyPipe, NgForOf } from '@angular/common';
+import { AsyncPipe, CurrencyPipe, NgForOf, NgIf } from '@angular/common';
 import { MatButton } from '@angular/material/button';
 import {
   MatCard,
@@ -41,6 +41,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     MatMenuTrigger,
     HttpClientModule,
+    NgIf,
   ],
   exports: [
     ProductChineseComponent,

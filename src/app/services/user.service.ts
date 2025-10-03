@@ -9,6 +9,12 @@ export interface UserDto {
   password: string;
 }
 
+export interface IUser {
+  email: string;
+  password: string;
+  token: string;
+}
+
 export interface IResponseUser {
   email: string;
   password: string;
@@ -26,7 +32,7 @@ export interface IResponseUserData {
   providedIn: 'root',
 })
 export class UserService {
-  private apiUrl = 'http://localhost:3000/api/user';
+  private apiUrl = 'http://localhost:3000/api';
 
   public isUserLogged = new BehaviorSubject<boolean>(false);
 
@@ -39,27 +45,18 @@ export class UserService {
 
   constructor(private _http: HttpClient) {}
 
-  // public createUser(userData: UserDto) {
-  //   return this._http.post(this.apiUrl, userData);
-  // }
-
   public createUser(userData: UserDto): Observable<IResponseUserData> {
-    return this._http.post<IResponseUserData>(this.apiUrl, userData);
+    return this._http.post<IResponseUserData>(
+      'http://localhost:3000/api/user',
+      userData,
+    );
   }
-
-  // public login(): void {
-  //   this.isUserLogged.next(true);
-  // }
 
   public login(user: UserDto) {
-    return this._http.post('http://localhost:3000/api/auth/login', user);
+    return this._http.post<IUser>(`${this.apiUrl}/auth/login`, user);
   }
 
-  addToCheckout(form: FormGroup): void {
-    this.checkoutSubject.next([
-      ...this.checkoutSubject.value,
-      <Checkout>{ ...form.value, date: new Date() },
-    ]);
-    console.log(form.value);
+  addToCheckout(order: any): Observable<any> {
+    return this._http.post('http://localhost:3000/api/orders', order);
   }
 }

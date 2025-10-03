@@ -2,8 +2,8 @@
   <div class="filter">
     <app-filters #filtersNaprimer></app-filters>
   </div>
-  <div class="product-list">
-    @for (product of products$ | productFilter : (filtersNaprimer.filtersArray$ | async); track product.id) {
+  <div class="product-list" *ngIf="products$ | async as products">
+    @for (product of products | productFilter : (filtersNaprimer.filtersArray$ | async); track product.id) {
       <app-product appHighLight [product]="product" (addProduct)="addToCart($event)"
                    (redirectToProduct)="redirectTo($event)"></app-product>
     }

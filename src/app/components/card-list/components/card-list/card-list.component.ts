@@ -25,9 +25,8 @@ const myToken = new InjectionToken<(string | number)[]>('myDesc');
 })
 export class CardListComponent implements OnInit {
   data = inject(myToken);
-  // public cards$: Observable<CardList[]> = of([]);
 
-  public cards$: CardList[] = [];
+  public cards$!: Observable<CardList[]>;
 
   constructor(private shopService: ShopService) {}
 
@@ -35,10 +34,8 @@ export class CardListComponent implements OnInit {
     this.setCards();
   }
 
-  public setCards(): void {
-    this.shopService.getMockCards().subscribe((cards) => {
-      this.cards$ = cards;
-    });
+  public setCards() {
+    this.cards$ = this.shopService.getMockCards();
   }
 
   public addToCart(card: CardList): void {

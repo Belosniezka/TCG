@@ -8,6 +8,7 @@ import {
   ChineseProduct,
   ShopService,
 } from '../../../../services/services.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-chinese-list',
@@ -19,9 +20,7 @@ import {
 export class ProductChineseListComponent implements OnInit {
   @Input() filters: string[] = [];
 
-  // public chineseProducts$: Observable<ChineseProduct[]> = of([]);
-
-  public chineseProducts$: ChineseProduct[] = [];
+  public chineseProducts$!: Observable<ChineseProduct[]>;
 
   constructor(private shopService: ShopService) {}
 
@@ -30,9 +29,7 @@ export class ProductChineseListComponent implements OnInit {
   }
 
   public getChinese() {
-    this.shopService.getMockChinese().subscribe((data) => {
-      this.chineseProducts$ = data;
-    });
+    this.chineseProducts$ = this.shopService.getMockChinese();
   }
 
   addToCart(product: ChineseProduct) {

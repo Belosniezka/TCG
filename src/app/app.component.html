@@ -12,9 +12,14 @@
           </button>
         </div>
         <div class="cart">
-          <button mat-button style="color: #e85d41" [routerLink]="['/authorization']" routerLinkActive="active">Log in
+          <button *ngIf="isLoggedIn$ | async" mat-button style="color: #e85d41" (click)="logout()">Log out
           </button>
-          <!--        <button style="color: black"  mat-button [routerLink]="['/cart']" routerLinkActive="active">Cart</button>-->
+          <button *ngIf="!(isLoggedIn$ | async)" mat-button style="color: #e85d41" [routerLink]="['/authorization']"
+                  routerLinkActive="active">Log in
+          </button>
+          <button *ngIf="isLoggedIn$ | async" mat-button style="color: #e85d41" [routerLink]="['/user']"
+                  routerLinkActive="active">Profile
+          </button>
           <button style="color: #e85d41" mat-button="elevated" (click)="drawer.toggle()">Cart</button>
         </div>
       </div>

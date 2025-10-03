@@ -17,22 +17,24 @@
 
 <!--</div>-->
 
+<h1>safafaf</h1>
 
-@if (formData$ | async; as formData) {
-  @for (order of formData; track order) {
-    <div>
-      <div class="order">
-        <h1>Number of order : {{ formData.length }}</h1>
-        <h2>Date : {{ order.date | date }} </h2>
-        <p> Status : shipped</p>
-        <div class="address">
-          <div>Country : {{ order.delivery.country }}</div>
-          <div>City : {{ order.delivery.city }}</div>
-          <div>Address : {{ order.delivery.address }}</div>
-          <div> Name : {{ order.personalInfo.firstName + ' ' + order.personalInfo.lastName }}</div>
-          <div>Zip Code : {{ order.delivery.zipCode }}</div>
-        </div>
-      </div>
-    </div>
-  }
-}
+<!--@if (formData$ | async; as formData) {-->
+<!--  @for (order of formData; track order) {-->
+<!--    <div>-->
+<!--      <div class="order">-->
+<!--        <h1>Number of order : {{ formData.length }}</h1>-->
+<!--        <h2>Date : {{ order.date | date }} </h2>-->
+<!--        <p> Status : shipped</p>-->
+<!--        <div class="address">-->
+<!--          <div>Country : {{ order.delivery.country }}</div>-->
+<!--          <div>City : {{ order.delivery.city }}</div>-->
+<!--          <div>Address : {{ order.delivery.address }}</div>-->
+<!--          <div> Name : {{ order.personalInfo.firstName + ' ' + order.personalInfo.lastName }}</div>-->
+<!--          <div>Zip Code : {{ order.delivery.zipCode }}</div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  }-->
+<!--}-->
+

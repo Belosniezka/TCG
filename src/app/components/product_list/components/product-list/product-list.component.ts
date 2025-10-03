@@ -19,7 +19,7 @@ import { dateTimestampProvider } from 'rxjs/internal/scheduler/dateTimestampProv
 export class ProductListComponent implements OnInit {
   // public products$: Observable<Product[]> = of([]);
 
-  public products$: Product[] = [];
+  public products$!: Observable<Product[]>;
 
   constructor(
     private shopService: ShopService,
@@ -40,8 +40,6 @@ export class ProductListComponent implements OnInit {
   }
 
   public setProducts(): void {
-    this.shopService.getMockProducts().subscribe((data) => {
-      this.products$ = data;
-    });
+    this.products$ = this.shopService.getMockProducts();
   }
 }

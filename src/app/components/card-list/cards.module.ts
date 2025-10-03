@@ -2,7 +2,13 @@ import { NgModule } from '@angular/core';
 import { CardListComponent } from './components/card-list/card-list.component';
 import { CardsRouting } from './cards-routing.module';
 import { CardComponent } from './components/card/card.component';
-import { AsyncPipe, CurrencyPipe, JsonPipe, NgForOf } from '@angular/common';
+import {
+  AsyncPipe,
+  CurrencyPipe,
+  JsonPipe,
+  NgForOf,
+  NgIf,
+} from '@angular/common';
 import { MatButton } from '@angular/material/button';
 import {
   MatCard,
@@ -48,6 +54,7 @@ import { HttpClientModule } from '@angular/common/http';
     HighLightDirective,
     ProductsModule,
     HttpClientModule,
+    NgIf,
   ],
   exports: [CardListComponent, CardComponent, CardFilterComponent],
   declarations: [

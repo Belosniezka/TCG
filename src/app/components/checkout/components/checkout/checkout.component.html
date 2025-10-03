@@ -14,7 +14,7 @@
               <input matInput placeholder=" Last name" formControlName="lastName" required>
             </mat-form-field>
           </div>
-          <div>
+          <div class="four-step-button">
             <button mat-button matStepperNext type="button">Next</button>
           </div>
         </div>
@@ -34,7 +34,7 @@
           <mat-form-field>
             <input matInput placeholder="Zip-Cod" formControlName="zipCode" required>
           </mat-form-field>
-          <div>
+          <div class="four-step-button">
             <button mat-button matStepperPrevious type="button">Back</button>
             <button mat-button matStepperNext (click)="next()" type="button">Next</button>
           </div>
@@ -43,6 +43,9 @@
       <mat-step>
         <div class="four-step">
           <ng-template matStepLabel>Total</ng-template>
+          <div class="total-price">
+            Total Price : {{ totalPrice$ | async | currency }}
+          </div>
           <div class="cart">
             @for (item of cart$ | async; track item.id) {
               <div class="cart-item">
@@ -79,7 +82,7 @@
         </div>
         <div class="four-step-button">
           <button mat-button matStepperPrevious type="button">Back</button>
-          <button mat-button (click)="stepper.reset()" type="button">Pay</button>
+          <button mat-button (click)="submitOrder()" type="button">Pay</button>
         </div>
       </mat-step>
     </mat-horizontal-stepper>

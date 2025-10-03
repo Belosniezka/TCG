@@ -8,15 +8,6 @@
         @if (!myForm.controls['email'].valid && myForm.controls['email'].touched) {
           <small style="color: red">Please fill in</small>
         }
-        <!--    <button-->
-        <!--      mat-icon-button-->
-        <!--      matSuffix-->
-        <!--      (click)="clickEvent($event)"-->
-        <!--      [attr.aria-label]="'Hide password'"-->
-        <!--      [attr.aria-pressed]="hide()"-->
-        <!--    >-->
-        <!--      <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>-->
-        <!--    </button>-->
       </mat-form-field>
     </div>
   </div>
@@ -25,30 +16,23 @@
     <div class="example-password">
       <mat-form-field>
         <mat-label for="password">Enter your password</mat-label>
-        <input matInput [type]="hide() ? 'password' : 'text'" type="password" id="password" formControlName="password"/>
+        <input matInput type="password" id="password" formControlName="password"/>
         @if (!myForm.controls['password'].valid && myForm.controls['password'].touched) {
           <small style="color: red">Please fill in</small>
         }
-        <!--        <button-->
-        <!--          mat-icon-button-->
-        <!--          matSuffix-->
-        <!--          (click)="clickEvent($event)"-->
-        <!--          [attr.aria-label]="'Hide password'"-->
-        <!--          [attr.aria-pressed]="hide()"-->
-        <!--        >-->
-        <!--          <mat-icon>{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>-->
-        <!--        </button>-->
       </mat-form-field>
-      <div class="create">
-        <button mat-button [routerLink]="['create-user']" routerLinkActive="active">
-          Create account
+      <div class="sign-in">
+        <button mat-fab extended (click)="login()">
+          SIGN IN
         </button>
       </div>
     </div>
   </div>
-  <div class="sign-in">
-    <button mat-fab extended (click)="login()">
-      SIGN IN
+  <div class="create">
+    Dont have an account?
+
+    <button [routerLink]="['create-user']" routerLinkActive="active">
+      Create account
     </button>
   </div>
 </div>
