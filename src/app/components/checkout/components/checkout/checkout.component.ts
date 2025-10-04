@@ -1,5 +1,9 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { CartItem, ShopService } from '../../../../services/services.service';
+import {
+  CartItem,
+  Product,
+  ShopService,
+} from '../../../../services/services.service';
 import { combineLatest, map, Observable, take } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../../../services/user.service';
@@ -39,6 +43,14 @@ export class CheckoutComponent {
     private userService: UserService,
     private router: Router,
   ) {}
+
+  public addOne(product: Product) {
+    this.shopService.addCartProduct(product);
+  }
+
+  public removeOne(product: Product) {
+    this.shopService.removeOneFromCart(product);
+  }
 
   public get deliveryForm(): FormGroup {
     return <FormGroup>this.checkoutForm.get('delivery');

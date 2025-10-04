@@ -1,7 +1,5 @@
 import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
-import { Checkout } from '../components/user/interfaces/checkout';
-import { FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
 export interface UserDto {
@@ -28,6 +26,30 @@ export interface IResponseUserData {
   user: IResponseUser;
 }
 
+export interface IOrder {
+  id: number;
+  firstName: string;
+  lastName: string;
+  country: string;
+  city: string;
+  address: string;
+  zipCode: string;
+  totalPrice: number;
+  status: string;
+  createdAt: string;
+  userId: number;
+  items: IOrderItems[];
+}
+
+export interface IOrderItems {
+  id: number;
+  productId: number;
+  name: string;
+  price: number;
+  quantity: number;
+  orderId: number;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -36,13 +58,6 @@ export class UserService {
 
   public isUserLogged = new BehaviorSubject<boolean>(false);
 
-  private checkoutSubject: BehaviorSubject<Checkout[]> = new BehaviorSubject<
-    Checkout[]
-  >([]);
-
-  public readonly checkout$: Observable<Checkout[]> =
-    this.checkoutSubject.asObservable();
-
   constructor(private _http: HttpClient) {}
 
   public createUser(userData: UserDto): Observable<IResponseUserData> {
@@ -50,6 +65,10 @@ export class UserService {
       'http://localhost:3000/api/user',
       userData,
     );
+  }
+
+  getMyOrders(): Observable<IOrder[]> {
+    return this._http.get<IOrder[]>(`${this.apiUrl}/orders/my`);
   }
 
   public login(user: UserDto) {

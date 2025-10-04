@@ -1,6 +1,6 @@
 <div class="checkout-page">
   <form class="stepper" [formGroup]="checkoutForm">
-    <mat-horizontal-stepper [linear]="false" #stepper [animationDuration]="'500'">
+    <mat-horizontal-stepper [linear]="true" [animationDuration]="'500'">
       <mat-step formGroupName="personalInfo" [stepControl]="personalInfoForm">
         <div class="first-step">
           <ng-template matStepLabel>Fill out your name</ng-template>
@@ -15,7 +15,7 @@
             </mat-form-field>
           </div>
           <div class="four-step-button">
-            <button mat-button matStepperNext type="button">Next</button>
+            <button [disabled]="!personalInfoForm.valid" mat-button matStepperNext type="button">Next</button>
           </div>
         </div>
       </mat-step>
@@ -36,7 +36,9 @@
           </mat-form-field>
           <div class="four-step-button">
             <button mat-button matStepperPrevious type="button">Back</button>
-            <button mat-button matStepperNext (click)="next()" type="button">Next</button>
+            <button [disabled]="!deliveryForm.valid || (cart$ | async)?.length === 0" mat-button matStepperNext
+                    (click)="next()" type="button">Next
+            </button>
           </div>
         </div>
       </mat-step>
@@ -59,18 +61,18 @@
                 <div class="description">
                   <p>{{ item.product.name }}</p>
                   <div class="action">
-                    <button mat-flat-button>-</button>
-                    <button mat-flat-button>+</button>
+                    <button mat-flat-button (click)="removeOne(item.product)">-</button>
+                    <p>{{ item.amount }}</p>
+                    <button mat-flat-button (click)="addOne(item.product)">+</button>
                   </div>
-                  <p>{{ item.product.price | currency }}</p>
+                  <p>{{ item.product.price * item.amount  | currency }}</p>
                 </div>
               </div>
             }
           </div>
-
           <div class="four-step-button">
             <button mat-button matStepperPrevious type="button">Back</button>
-            <button mat-button matStepperNext type="button">Next</button>
+            <button [disabled]="(cart$ | async)?.length === 0" mat-button matStepperNext type="button">Next</button>
           </div>
         </div>
       </mat-step>

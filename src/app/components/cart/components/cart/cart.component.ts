@@ -61,4 +61,6 @@ export class CartComponent {
   public removeAllFromCart(): void {
     this.shopService.removeAllFromCart();
   }
+
+  protected readonly length = length;
 }
