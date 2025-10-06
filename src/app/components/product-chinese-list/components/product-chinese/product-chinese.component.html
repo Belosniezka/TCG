@@ -1,20 +1,20 @@
-<div class="wraper">
-  <div class="card">
-    <img
-      src="{{chineseProduct.image}}"
-      alt="Photo of Apple">
+<div class="data">
+  <mat-card class="chinese-product" appearance="outlined">
+    <div class="image">
+      <img mat-card-image
+           src="{{chineseProduct.image}}"
+           alt="Photo of Apple">
+    </div>
     <div class="content">
-      <p class="product-name">
-        {{ chineseProduct.name }}
-      </p>
-      <p>
-        {{ chineseProduct.price | currency }}
-      </p>
+      <div class="custom-content">
+        <p class="title">{{ chineseProduct.name }}</p>
+        <p class="subtitle">{{ chineseProduct.price | currency }}</p>
+      </div>
+      <div class="custom-action">
+        <button (click)="addToCart(chineseProduct)" mat-button>Add</button>
+        <!--        <button (click)="redirectTo(product.id)" mat-button>Info</button>-->
+        <!--        <button (click)="openModal(product.id)" mat-button>Quick View</button>-->
+      </div>
     </div>
-    <div class="actions">
-      <button (click)="addToCart(chineseProduct)" mat-flat-button>Add</button>
-      <!--      <button (click)="redirectTo(product.id)" mat-button>Info</button>-->
-      <!--      <button (click)="openModal()" mat-button>Quick View</button>-->
-    </div>
-  </div>
+  </mat-card>
 </div>

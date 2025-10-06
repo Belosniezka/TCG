@@ -1,6 +1,8 @@
-<div class="chinese-product" *ngIf="chineseProducts$ | async as chineseProducts">
-  @for (chineseProduct of chineseProducts  | chineseFilter: filters; track chineseProduct.id) {
-    <app-product-chinese appHighLight [chineseProduct]="chineseProduct"
-                         (addProduct)="addToCart($event)"></app-product-chinese>
-  }
+<div class="data">
+  <div class="chinese-product" *ngIf="chineseProducts$ | async as chineseProducts">
+    @for (chineseProduct of chineseProducts  | chineseFilter: filters; track chineseProduct.id) {
+      <app-product-chinese appHighLight [chineseProduct]="chineseProduct"
+                           (addProduct)="addToCart($event)"></app-product-chinese>
+    }
+  </div>
 </div>

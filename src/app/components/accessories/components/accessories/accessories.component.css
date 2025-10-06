@@ -5,59 +5,53 @@
 }
 
 .data {
+  width: 240px;
   height: 100%;
-  min-height: 300px;
-  /*width: 100%;*/
-  /*min-width: 200px;*/
+
+  mat-card {
+    border: #333;
+    height: 100%;
+  }
 }
 
 .example-accessories {
-  width: 240px;
-  height: 100%; /* Будет работать при использовании min-height */
+  background-color: #333;
+}
+
+
+.image {
+  height: 220px;
+  margin: 8px;
+  background-color: white;
+  border-radius: 10px;
+
+  img[mat-card-image] {
+    padding: 4px;
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.content {
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 300px;
-  border: 4px black solid;
 }
 
-.custom-header {
-  background-color: #333; /* Тёмно-серый */
-  color: white;           /* Белый текст, чтобы было видно */
-  border-radius: 6px 6px 0 0; /* Радиус сверху, если хочешь скруглённый угол */
-}
 .custom-content {
-  padding: 4px;
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  background-color: #333; /* Тёмно-серый */
-  color: white; /* Белый текст, чтобы было видно */
-  flex-grow: 1;
-  /*border-radius: 6px 6px 0 0; !* Радиус сверху, если хочешь скруглённый угол *!*/
-}
-.title {
-  padding: 4px;
-  display: flex;
-  justify-content: center;
-  font-size: 18px;
+  align-items: center;
+  color: #e85d41;
+
+  .title {
+    text-align: center;
+  }
 }
 
-
-.custom-action {
-  background-color: #333; /* Тёмно-серый */
-  color: white;           /* Белый текст, чтобы было видно */
-  border-radius: 0 0 6px 6px;
-}
-
-img[mat-card-image] {
-  padding: 6px;
-  object-fit: cover;
-  height: 200px;
-}
-.subtitle {
-  display: flex;
-  padding: 4px;
-  color: white;
+.custom-action button {
+  color: #e85d41;
 }
 

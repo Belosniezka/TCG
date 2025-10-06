@@ -9,8 +9,12 @@
 
 .filter {
   display: flex;
-  height: 100%;
   position: sticky;
   top: 10px;
   z-index: 1;
+  width: 220px;
+  height: 100%;
+  margin-top: 10px;
+
 }
+

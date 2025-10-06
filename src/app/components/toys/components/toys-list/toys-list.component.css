@@ -1,11 +1,21 @@
-.toys {
+
+.center-wrapper {
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+  justify-content: flex-start;
   flex-direction: row;
+  gap: 40px;
   margin-top: 10px;
+  width: 100%;
+  height: 100%;
 }
 
-.navigate {
-  background: lightsalmon;
+
+.toys {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 6px;
+  gap: 16px;
+  justify-content: flex-start;
+  margin-top: 10px;
 }

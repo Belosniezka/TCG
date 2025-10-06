@@ -1,6 +1,7 @@
-<!--<app-navigate></app-navigate>-->
-<div class="toys">
-  @for (toys of toys$ | async; track toys.id) {
-    <app-toys appHighLight [toys]="toys" (addToys)="addToCart($event)"></app-toys>
-  }
+<div class="center-wrapper">
+  <div class="toys">
+    @for (toys of toys$ | async; track toys.id) {
+      <app-toys appHighLight [toys]="toys" (addToys)="addToCart($event)"></app-toys>
+    }
+  </div>
 </div>
