@@ -1,28 +1,32 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {Observable, of} from 'rxjs';
-import {AccessoriesList, CardList, ShopService} from '../../../../services/services.service';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import {
+  AccessoriesList,
+  CardList,
+  ShopService,
+} from '../../../../services/services.service';
 
 @Component({
   selector: 'app-accessories-list',
   standalone: false,
   templateUrl: './accessories-list.component.html',
   styleUrl: './accessories-list.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AccessoriesListComponent  implements OnInit {
+export class AccessoriesListComponent implements OnInit {
+  public accessories$?: Observable<AccessoriesList[]>;
 
-  public accessories$: Observable<AccessoriesList[]> = of([]);
-
-  constructor(
-    private shopService: ShopService) {}
-
+  constructor(private shopService: ShopService) {}
 
   ngOnInit() {
-    this.setAccessories()
+    this.setAccessories();
   }
 
   public setAccessories() {
-    this.accessories$ =this.shopService.getMockAccessories()
+    this.accessories$ = this.shopService.getFilteredProducts({
+      languageSet: '',
+      productType: 'Accessories',
+    });
   }
 
   public addToCart(accessor: AccessoriesList): void {

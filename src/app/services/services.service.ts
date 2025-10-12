@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable, of } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { StorageService } from './storage.service';
 
 export interface Product {
@@ -11,6 +11,8 @@ export interface Product {
   image: string;
   category: string;
   categorySet: string;
+  // languageSet: string;
+  // productType: string;
 }
 
 export interface CardList {
@@ -408,367 +410,367 @@ export class ShopService {
     },
   ];
 
-  private products: Product[] = [
-    {
-      id: 32,
-      name: 'Pokémon TCG Scarlet & Violet : 151 SPC',
-      description:
-        ' The Mythical Pokémon Mew holds many secrets of the Pokémon world, and usually only the luckiest of Trainers encounter it. But now you can add it to your own Pokédex along with even more Kanto Pokémon inside a bounty of booster packs from the Scarlet & Violet—151 expansion! Mew ex appears here as both playable and collectible metal cards, and you’ll also find a beautifully illustrated promo card featuring Mewtwo, a durable playmat and deck box, and more.\n' +
-        '\n' +
-        'The Pokémon TCG: Scarlet & Violet—151 Ultra-Premium Collection includes:\n' +
-        '\n' +
-        '    1 etched foil promo card featuring Mew ex\n' +
-        '    1 full-art foil promo card featuring Mewtwo\n' +
-        '    1 etched metal card featuring Mew ex\n' +
-        '    1 playmat\n' +
-        '    1 deck box\n' +
-        '    1 metallic coin featuring Mew\n' +
-        '    6 damage-counter dice\n' +
-        '    2 plastic condition markers\n' +
-        '    16 booster packs from Pokémon TCG: Scarlet & Violet—151\n' +
-        '        Each booster pack contains 10 cards and 1 Basic Energy. Cards vary by pack.\n' +
-        '    A code card for Pokémon TCG Live',
-      price: 119.99,
-      image:
-        'https://pokeshop.pl/images/mini/300px_Pokemon%20TCG%20151%20Ultra%20Premium%20Collection%20Mew%20%281%29.webp',
-      category: 'Super Premium Collection',
-      categorySet: '',
-    },
-    {
-      id: 33,
-      name: 'Pokémon TCG Scarlet & Violet : Journey Together ETB',
-      description: ' Red Apple, country: Poland',
-      price: 54.99,
-      image:
-        'https://tcg.pokemon.com/assets/img/sv-expansions/journey-together/collections/en-us/sv09-etb-en-2x.png',
-      category: 'Elite Trainer Box',
-      categorySet: '',
-    },
-    {
-      id: 34,
-      name: 'Pokémon TCG Scarlet & Violet : Twilight Masquerade ETB',
-      description:
-        ' Welcome to the land of Kitakami, where people and Pokémon live harmoniously with nature. Folktales abound, but not all is as it seems… Uncover the mystery of the masked Legendary Pokémon Ogerpon, appearing as four fearsome types of Tera Pokémon ex, and team up with more newly discovered Pokémon, like Bloodmoon Ursaluna ex and Sinistcha ex. Growing in power, Greninja, Dragapult, and Magcargo dazzle as Tera Pokémon ex, and more ACE SPEC cards round out the festivities in the Pokémon TCG: Scarlet & Violet—Twilight Masquerade expansion! ',
-      price: 54.99,
-      image:
-        'https://tcg.pokemon.com/assets/img/sv-expansions/twilight-masquerade/collections/en-us/p9505-sv06-3d-pc-etb-outersleeve-right-en-2x.png',
-      category: 'Elite Trainer Box',
-      categorySet: '',
-    },
-    {
-      id: 35,
-      name: 'Prismatic Evolutions ETB',
-      description: ' Red Apple, country: Poland',
-      price: 54.99,
-      image:
-        'https://tcg.pokemon.com/assets/img/sv-expansions/prismatic-evolutions/collections/en-us/sv8pt5-etb-pc-en-2x.png',
-      category: 'Elite Trainer Box',
-      categorySet: '',
-    },
-    {
-      id: 36,
-      name: 'Surging Sparks ETB',
-      description: ' Red Apple, country: Poland',
-      price: 54.99,
-      image:
-        'https://www.pokemoncenter.com/images/DAMRoot/High/10000/P9508_191-85953_01.jpg',
-      category: 'Elite Trainer Box',
-      categorySet: '',
-    },
-    {
-      id: 37,
-      name: 'Paldean Fates ETB',
-      description: ' Red Apple, country: Poland',
-      price: 54.99,
-      image:
-        'https://pokeshop.pl/images/mini/600px_pokemon-tcg-etb-paldean-fates.webp',
-      category: 'Elite Trainer Box',
-      categorySet: '',
-    },
-    {
-      id: 38,
-      name: 'Shrouded Fable ETB',
-      description: ' Red Apple, country: Poland',
-      price: 54.99,
-      image:
-        'https://tcg.pokemon.com/assets/img/sv-expansions/shrouded-fable/collections/en-us/P9506_SV06pt5_3D_PC_ETB_OuterSleeve_Right_EN-2x.png',
-      category: 'Elite Trainer Box',
-      categorySet: '',
-    },
-    {
-      id: 39,
-      name: 'Obsidian Flames ETB',
-      description: ' Red Apple, country: Poland',
-      price: 54.99,
-      image:
-        'https://pokeshop.pl/images/mini/600px_Pokemon_TCG_Scarlet_Violet%E2%80%94Obsidian_Flames_Elite_Trainer_Box%20%281%292.webp',
-      category: 'Elite Trainer Box',
-      categorySet: '',
-    },
-    {
-      id: 40,
-      name: 'Paldea Evolved ETB',
-      description: ' Red Apple, country: Poland',
-      price: 54.99,
-      image:
-        'https://pokeshop.pl/images/mini/600px_185-85366_SV02_3D_ETB_EN-2700x2573-9566ca9.webp',
-      category: 'Elite Trainer Box',
-      categorySet: '',
-    },
-    {
-      id: 41,
-      name: 'Scarlet & Violet ETB',
-      description: ' Red Apple',
-      price: 54.99,
-      image:
-        'https://pokeshop.pl/images/mini/300px_SV01_3D_ETB_Kiraidon_3.webp',
-      category: 'Elite Trainer Box',
-      categorySet: '',
-    },
-    {
-      id: 42,
-      name: 'Paradox Rift ETB',
-      description: ' Red Apple, country: Poland',
-      price: 54.99,
-      image:
-        'https://pokeshop.pl/images/mini/600px_Pokemon-Scarlet-and-Violet-Paradox-Rift-ETB-Iron-Valiant',
-      category: 'Elite Trainer Box',
-      categorySet: '',
-    },
-    {
-      id: 43,
-      name: 'Stellar Crown ETB',
-      description: ' Red Apple, country: Poland',
-      price: 54.99,
-      image:
-        'https://tcg.pokemon.com/assets/img/sv-expansions/stellar-crown/collections/en-us/sv07-etb-en-2x.png',
-      category: 'Elite Trainer Box',
-      categorySet: '',
-    },
-    {
-      id: 44,
-      name: 'Temporal Forces ETB',
-      description: ' Red Apple, country: Poland',
-      price: 54.99,
-      image:
-        'https://tcg.pokemon.com/assets/img/sv-expansions/temporal-forces/collections/en-us/P9504_SV05_3D_PCenter_ETB_Walking_Wake_Right_EN-2x.png',
-      category: 'Elite Trainer Box',
-      categorySet: '',
-    },
-    {
-      id: 45,
-      name: '151 ETB',
-      description: ' Red Apple, country: Poland',
-      price: 54.99,
-      image:
-        'https://pokeshop.pl/images/mini/300px_Pokemon%20TCG%20Scarlet%20%26%20Violet%20151%20Elite%20Trainer%20Box.webp',
-      category: 'Elite Trainer Box',
-      categorySet: '',
-    },
-    {
-      id: 46,
-      name: 'Paradox Rift Booster',
-      description: ' Red Apple, country: Poland',
-      price: 4.99,
-      image:
-        'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P8981_187-85399-BULK_01.jpg',
-      category: 'Booster Packs',
-      categorySet: '',
-    },
-    {
-      id: 47,
-      name: 'Temporal Forces Booster',
-      description: ' Red Apple, country: Poland',
-      price: 4.99,
-      image:
-        'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P9504_188-85981-BULK_01.jpg',
-      category: 'Booster Packs',
-      categorySet: '',
-    },
-    {
-      id: 48,
-      name: 'Surging Sparks Booster',
-      description: ' Red Apple, country: Poland',
-      price: 6.99,
-      image:
-        'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P9508_191-85932_01.jpg',
-      category: 'Booster Packs',
-      categorySet: '',
-    },
-    {
-      id: 49,
-      name: 'Destined Rivals Booster',
-      description: ' Red Apple',
-      price: 5.99,
-      image:
-        'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10011/P10345_100-10623_01.jpg',
-      category: 'Booster Packs',
-      categorySet: '',
-    },
-    {
-      id: 50,
-      name: 'Twilight Masquerade Booster',
-      description: ' Red Apple',
-      price: 5.99,
-      image:
-        'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P9505_189-85340-BULK_01.jpg',
-      category: 'Booster Packs',
-      categorySet: '',
-    },
-    {
-      id: 51,
-      name: 'Pokémon TCG: Palafin ex Box',
-      description: ' Pokémon TCG: Palafin ex Box',
-      price: 19.99,
-      image:
-        'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P9555_290-85758_01.jpg',
-      category: 'Boxed Sets',
-      categorySet: '',
-    },
-    {
-      id: 52,
-      name: 'Pokémon TCG: Iron Valiant ex Box',
-      description: ' Pokémon TCG: Iron Valiant ex Box',
-      price: 19.99,
-      image:
-        'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P8984_699-85713_01.jpg',
-      category: 'Boxed Sets',
-      categorySet: '',
-    },
-    {
-      id: 53,
-      name: 'Pokémon TCG: Prismatic Evolutions Surprise Box',
-      description:
-        ' Pokémon TCG: Scarlet & Violet-Prismatic Evolutions Surprise Box',
-      price: 19.99,
-      image:
-        'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10004/P10460_100-10096_01.jpg',
-      category: 'Boxed Sets',
-      categorySet: '',
-    },
-    {
-      id: 54,
-      name: '151 Booster Bundle',
-      description: ' Pokémon TCG: Scarlet & Violet-151 Booster Bundle',
-      price: 23.99,
-      image:
-        'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P8976_699-85322_01.jpg',
-      category: 'Boxed Sets',
-      categorySet: '',
-    },
-  ];
+  // private products: Product[] = [
+  //   {
+  //     id: 32,
+  //     name: 'Pokémon TCG Scarlet & Violet : 151 SPC',
+  //     description:
+  //       ' The Mythical Pokémon Mew holds many secrets of the Pokémon world, and usually only the luckiest of Trainers encounter it. But now you can add it to your own Pokédex along with even more Kanto Pokémon inside a bounty of booster packs from the Scarlet & Violet—151 expansion! Mew ex appears here as both playable and collectible metal cards, and you’ll also find a beautifully illustrated promo card featuring Mewtwo, a durable playmat and deck box, and more.\n' +
+  //       '\n' +
+  //       'The Pokémon TCG: Scarlet & Violet—151 Ultra-Premium Collection includes:\n' +
+  //       '\n' +
+  //       '    1 etched foil promo card featuring Mew ex\n' +
+  //       '    1 full-art foil promo card featuring Mewtwo\n' +
+  //       '    1 etched metal card featuring Mew ex\n' +
+  //       '    1 playmat\n' +
+  //       '    1 deck box\n' +
+  //       '    1 metallic coin featuring Mew\n' +
+  //       '    6 damage-counter dice\n' +
+  //       '    2 plastic condition markers\n' +
+  //       '    16 booster packs from Pokémon TCG: Scarlet & Violet—151\n' +
+  //       '        Each booster pack contains 10 cards and 1 Basic Energy. Cards vary by pack.\n' +
+  //       '    A code card for Pokémon TCG Live',
+  //     price: 119.99,
+  //     image:
+  //       'https://pokeshop.pl/images/mini/300px_Pokemon%20TCG%20151%20Ultra%20Premium%20Collection%20Mew%20%281%29.webp',
+  //     category: 'Super Premium Collection',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 33,
+  //     name: 'Pokémon TCG Scarlet & Violet : Journey Together ETB',
+  //     description: ' Red Apple, country: Poland',
+  //     price: 54.99,
+  //     image:
+  //       'https://tcg.pokemon.com/assets/img/sv-expansions/journey-together/collections/en-us/sv09-etb-en-2x.png',
+  //     category: 'Elite Trainer Box',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 34,
+  //     name: 'Pokémon TCG Scarlet & Violet : Twilight Masquerade ETB',
+  //     description:
+  //       ' Welcome to the land of Kitakami, where people and Pokémon live harmoniously with nature. Folktales abound, but not all is as it seems… Uncover the mystery of the masked Legendary Pokémon Ogerpon, appearing as four fearsome types of Tera Pokémon ex, and team up with more newly discovered Pokémon, like Bloodmoon Ursaluna ex and Sinistcha ex. Growing in power, Greninja, Dragapult, and Magcargo dazzle as Tera Pokémon ex, and more ACE SPEC cards round out the festivities in the Pokémon TCG: Scarlet & Violet—Twilight Masquerade expansion! ',
+  //     price: 54.99,
+  //     image:
+  //       'https://tcg.pokemon.com/assets/img/sv-expansions/twilight-masquerade/collections/en-us/p9505-sv06-3d-pc-etb-outersleeve-right-en-2x.png',
+  //     category: 'Elite Trainer Box',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 35,
+  //     name: 'Prismatic Evolutions ETB',
+  //     description: ' Red Apple, country: Poland',
+  //     price: 54.99,
+  //     image:
+  //       'https://tcg.pokemon.com/assets/img/sv-expansions/prismatic-evolutions/collections/en-us/sv8pt5-etb-pc-en-2x.png',
+  //     category: 'Elite Trainer Box',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 36,
+  //     name: 'Surging Sparks ETB',
+  //     description: ' Red Apple, country: Poland',
+  //     price: 54.99,
+  //     image:
+  //       'https://www.pokemoncenter.com/images/DAMRoot/High/10000/P9508_191-85953_01.jpg',
+  //     category: 'Elite Trainer Box',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 37,
+  //     name: 'Paldean Fates ETB',
+  //     description: ' Red Apple, country: Poland',
+  //     price: 54.99,
+  //     image:
+  //       'https://pokeshop.pl/images/mini/600px_pokemon-tcg-etb-paldean-fates.webp',
+  //     category: 'Elite Trainer Box',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 38,
+  //     name: 'Shrouded Fable ETB',
+  //     description: ' Red Apple, country: Poland',
+  //     price: 54.99,
+  //     image:
+  //       'https://tcg.pokemon.com/assets/img/sv-expansions/shrouded-fable/collections/en-us/P9506_SV06pt5_3D_PC_ETB_OuterSleeve_Right_EN-2x.png',
+  //     category: 'Elite Trainer Box',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 39,
+  //     name: 'Obsidian Flames ETB',
+  //     description: ' Red Apple, country: Poland',
+  //     price: 54.99,
+  //     image:
+  //       'https://pokeshop.pl/images/mini/600px_Pokemon_TCG_Scarlet_Violet%E2%80%94Obsidian_Flames_Elite_Trainer_Box%20%281%292.webp',
+  //     category: 'Elite Trainer Box',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 40,
+  //     name: 'Paldea Evolved ETB',
+  //     description: ' Red Apple, country: Poland',
+  //     price: 54.99,
+  //     image:
+  //       'https://pokeshop.pl/images/mini/600px_185-85366_SV02_3D_ETB_EN-2700x2573-9566ca9.webp',
+  //     category: 'Elite Trainer Box',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 41,
+  //     name: 'Scarlet & Violet ETB',
+  //     description: ' Red Apple',
+  //     price: 54.99,
+  //     image:
+  //       'https://pokeshop.pl/images/mini/300px_SV01_3D_ETB_Kiraidon_3.webp',
+  //     category: 'Elite Trainer Box',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 42,
+  //     name: 'Paradox Rift ETB',
+  //     description: ' Red Apple, country: Poland',
+  //     price: 54.99,
+  //     image:
+  //       'https://pokeshop.pl/images/mini/600px_Pokemon-Scarlet-and-Violet-Paradox-Rift-ETB-Iron-Valiant',
+  //     category: 'Elite Trainer Box',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 43,
+  //     name: 'Stellar Crown ETB',
+  //     description: ' Red Apple, country: Poland',
+  //     price: 54.99,
+  //     image:
+  //       'https://tcg.pokemon.com/assets/img/sv-expansions/stellar-crown/collections/en-us/sv07-etb-en-2x.png',
+  //     category: 'Elite Trainer Box',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 44,
+  //     name: 'Temporal Forces ETB',
+  //     description: ' Red Apple, country: Poland',
+  //     price: 54.99,
+  //     image:
+  //       'https://tcg.pokemon.com/assets/img/sv-expansions/temporal-forces/collections/en-us/P9504_SV05_3D_PCenter_ETB_Walking_Wake_Right_EN-2x.png',
+  //     category: 'Elite Trainer Box',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 45,
+  //     name: '151 ETB',
+  //     description: ' Red Apple, country: Poland',
+  //     price: 54.99,
+  //     image:
+  //       'https://pokeshop.pl/images/mini/300px_Pokemon%20TCG%20Scarlet%20%26%20Violet%20151%20Elite%20Trainer%20Box.webp',
+  //     category: 'Elite Trainer Box',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 46,
+  //     name: 'Paradox Rift Booster',
+  //     description: ' Red Apple, country: Poland',
+  //     price: 4.99,
+  //     image:
+  //       'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P8981_187-85399-BULK_01.jpg',
+  //     category: 'Booster Packs',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 47,
+  //     name: 'Temporal Forces Booster',
+  //     description: ' Red Apple, country: Poland',
+  //     price: 4.99,
+  //     image:
+  //       'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P9504_188-85981-BULK_01.jpg',
+  //     category: 'Booster Packs',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 48,
+  //     name: 'Surging Sparks Booster',
+  //     description: ' Red Apple, country: Poland',
+  //     price: 6.99,
+  //     image:
+  //       'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P9508_191-85932_01.jpg',
+  //     category: 'Booster Packs',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 49,
+  //     name: 'Destined Rivals Booster',
+  //     description: ' Red Apple',
+  //     price: 5.99,
+  //     image:
+  //       'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10011/P10345_100-10623_01.jpg',
+  //     category: 'Booster Packs',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 50,
+  //     name: 'Twilight Masquerade Booster',
+  //     description: ' Red Apple',
+  //     price: 5.99,
+  //     image:
+  //       'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P9505_189-85340-BULK_01.jpg',
+  //     category: 'Booster Packs',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 51,
+  //     name: 'Pokémon TCG: Palafin ex Box',
+  //     description: ' Pokémon TCG: Palafin ex Box',
+  //     price: 19.99,
+  //     image:
+  //       'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P9555_290-85758_01.jpg',
+  //     category: 'Boxed Sets',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 52,
+  //     name: 'Pokémon TCG: Iron Valiant ex Box',
+  //     description: ' Pokémon TCG: Iron Valiant ex Box',
+  //     price: 19.99,
+  //     image:
+  //       'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P8984_699-85713_01.jpg',
+  //     category: 'Boxed Sets',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 53,
+  //     name: 'Pokémon TCG: Prismatic Evolutions Surprise Box',
+  //     description:
+  //       ' Pokémon TCG: Scarlet & Violet-Prismatic Evolutions Surprise Box',
+  //     price: 19.99,
+  //     image:
+  //       'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10004/P10460_100-10096_01.jpg',
+  //     category: 'Boxed Sets',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 54,
+  //     name: '151 Booster Bundle',
+  //     description: ' Pokémon TCG: Scarlet & Violet-151 Booster Bundle',
+  //     price: 23.99,
+  //     image:
+  //       'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P8976_699-85322_01.jpg',
+  //     category: 'Boxed Sets',
+  //     categorySet: '',
+  //   },
+  // ];
 
-  private chineseProduct: ChineseProduct[] = [
-    {
-      id: 54,
-      name: 'Pokemon Departure Gift Box : Charizard',
-      description:
-        '1.Supplementary pack (20 pieces) 3 packs \n' +
-        '2. Collection of 151 items (20 pictures) 3 packages \n' +
-        '3. Departure Package (2 pieces) 6 packages \n' +
-        '4. Fire Dragon Departure Theme Art Card Cover (64 pieces) 1 set \n' +
-        '5. Fire Dragon Departure Theme Coin Dice 1 piece \n' +
-        '6. Injury indicator dice 4 pieces \n' +
-        '7. Fire Dragon Departure Theme Card Storage Box (with 2 partitions) 1 piece',
-      price: 100,
-      image:
-        'https://redhatgamecard.com/cdn/shop/files/49-thumb-1000xauto-27412.png?v=1749693198&width=1946',
-      category: 'Departure Gift Box',
-      categorySet: '',
-    },
-    {
-      id: 55,
-      name: 'Pokemon Departure Gift Box : Bulbasaur',
-      description:
-        "'1.Supplementary pack (20 pieces) 3 packs \\n' +\n" +
-        "        '2. Collection of 151 items (20 pictures) 3 packages \\n' +\n" +
-        "        '3. Departure Package (2 pieces) 6 packages \\n' +\n" +
-        "        '4. Fire Dragon Departure Theme Art Card Cover (64 pieces) 1 set \\n' +\n" +
-        "        '5. Fire Dragon Departure Theme Coin Dice 1 piece \\n' +\n" +
-        "        '6. Injury indicator dice 4 pieces \\n' +\n" +
-        "        '7. Fire Dragon Departure Theme Card Storage Box (with 2 partitions) 1 piece",
-      price: 90,
-      image:
-        'https://redhatgamecard.com/cdn/shop/files/46-thumb-1000xauto-27409.png?v=1749693198&width=1946',
-      category: 'Departure Gift Box',
-      categorySet: '',
-    },
-    {
-      id: 56,
-      name: 'Pokemon Departure Gift Box : Blastoise',
-      description:
-        '1.Supplementary pack (20 pieces) 3 packs \n' +
-        '2. Collection of 151 items (20 pictures) 3 packages \n' +
-        '3. Departure Package (2 pieces) 6 packages \n' +
-        '4. Fire Dragon Departure Theme Art Card Cover (64 pieces) 1 set \n' +
-        '5. Fire Dragon Departure Theme Coin Dice 1 piece \n' +
-        '6. Injury indicator dice 4 pieces \n' +
-        '7. Fire Dragon Departure Theme Card Storage Box (with 2 partitions) 1 piece',
-      price: 90,
-      image:
-        'https://redhatgamecard.com/cdn/shop/files/52-thumb-1000xauto-27415.png?v=1749693198&width=1946',
-      category: 'Departure Gift Box',
-      categorySet: '',
-    },
-    {
-      id: 57,
-      name: 'Pokemon Departure Gift Box : Gardevoir',
-      description:
-        '1.Supplementary pack (20 pieces) 3 packs \n' +
-        '2. Collection of 151 items (20 pictures) 3 packages \n' +
-        '3. Departure Package (2 pieces) 6 packages \n' +
-        '4. Fire Dragon Departure Theme Art Card Cover (64 pieces) 1 set \n' +
-        '5. Fire Dragon Departure Theme Coin Dice 1 piece \n' +
-        '6. Injury indicator dice 4 pieces \n' +
-        '7. Fire Dragon Departure Theme Card Storage Box (with 2 partitions) 1 piece',
-      price: 90,
-      image:
-        'https://redhatgamecard.com/cdn/shop/files/76b42c12b393ea763fb9088fb40d8a829e86afba-thumb-1000xauto-27422.png?v=1749693198&width=1946',
-      category: 'Departure Gift Box',
-      categorySet: '',
-    },
-    {
-      id: 58,
-      name: 'PTCG Pokemon 10.0 Slim Pack (csv2C)',
-      description: 'PTCG Pokemon 10.0 Slim Pack (csv2C)',
-      price: 24.99,
-      image:
-        'https://redhatgamecard.com/cdn/shop/files/MBAN_ceb34304-474b-4179-a1cb-0f88fd0d4e3c.png?v=1752113956&width=1946',
-      category: 'Booster Pack',
-      categorySet: '',
-    },
-    {
-      id: 59,
-      name: 'Pokemon "Collect 151 Journey" Booster Box Slim',
-      description:
-        'Pokemon Simplified Chinese "Collect 151 Journey" Booster Box Slim',
-      price: 70.99,
-      image:
-        'https://tofutcg.in/wp-content/uploads/2025/02/Untitled-design-2025-02-06T114354.826.png',
-      category: 'Booster Box',
-      categorySet: '',
-    },
-    {
-      id: 60,
-      name: 'Simplified Chinese Pokemon: Gem Pack Vol 2 Booster Box',
-      description: 'Simplified Chinese Pokemon: Gem Pack Vol 2 Booster Box',
-      price: 60.5,
-      image:
-        'https://www.hammerheadtcg.co.uk/cdn/shop/files/GemVol2Box.jpg?v=1747040910',
-      category: 'Booster Box',
-      categorySet: '',
-    },
-    {
-      id: 61,
-      name: 'Pokemon Gem Pack Vol.1 Booster Box - Simplified Chinese ',
-      description: 'Pokemon Gem Pack Vol.1 Booster Box - Simplified Chinese ',
-      price: 55.99,
-      image:
-        'https://collectorskingdom.co.uk/cdn/shop/files/151GemPack.jpg?v=1739909356',
-      category: 'Booster Box',
-      categorySet: '',
-    },
-  ];
+  // private chineseProduct: ChineseProduct[] = [
+  //   {
+  //     id: 54,
+  //     name: 'Pokemon Departure Gift Box : Charizard',
+  //     description:
+  //       '1.Supplementary pack (20 pieces) 3 packs \n' +
+  //       '2. Collection of 151 items (20 pictures) 3 packages \n' +
+  //       '3. Departure Package (2 pieces) 6 packages \n' +
+  //       '4. Fire Dragon Departure Theme Art Card Cover (64 pieces) 1 set \n' +
+  //       '5. Fire Dragon Departure Theme Coin Dice 1 piece \n' +
+  //       '6. Injury indicator dice 4 pieces \n' +
+  //       '7. Fire Dragon Departure Theme Card Storage Box (with 2 partitions) 1 piece',
+  //     price: 100,
+  //     image:
+  //       'https://redhatgamecard.com/cdn/shop/files/49-thumb-1000xauto-27412.png?v=1749693198&width=1946',
+  //     category: 'Departure Gift Box',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 55,
+  //     name: 'Pokemon Departure Gift Box : Bulbasaur',
+  //     description:
+  //       "'1.Supplementary pack (20 pieces) 3 packs \\n' +\n" +
+  //       "        '2. Collection of 151 items (20 pictures) 3 packages \\n' +\n" +
+  //       "        '3. Departure Package (2 pieces) 6 packages \\n' +\n" +
+  //       "        '4. Fire Dragon Departure Theme Art Card Cover (64 pieces) 1 set \\n' +\n" +
+  //       "        '5. Fire Dragon Departure Theme Coin Dice 1 piece \\n' +\n" +
+  //       "        '6. Injury indicator dice 4 pieces \\n' +\n" +
+  //       "        '7. Fire Dragon Departure Theme Card Storage Box (with 2 partitions) 1 piece",
+  //     price: 90,
+  //     image:
+  //       'https://redhatgamecard.com/cdn/shop/files/46-thumb-1000xauto-27409.png?v=1749693198&width=1946',
+  //     category: 'Departure Gift Box',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 56,
+  //     name: 'Pokemon Departure Gift Box : Blastoise',
+  //     description:
+  //       '1.Supplementary pack (20 pieces) 3 packs \n' +
+  //       '2. Collection of 151 items (20 pictures) 3 packages \n' +
+  //       '3. Departure Package (2 pieces) 6 packages \n' +
+  //       '4. Fire Dragon Departure Theme Art Card Cover (64 pieces) 1 set \n' +
+  //       '5. Fire Dragon Departure Theme Coin Dice 1 piece \n' +
+  //       '6. Injury indicator dice 4 pieces \n' +
+  //       '7. Fire Dragon Departure Theme Card Storage Box (with 2 partitions) 1 piece',
+  //     price: 90,
+  //     image:
+  //       'https://redhatgamecard.com/cdn/shop/files/52-thumb-1000xauto-27415.png?v=1749693198&width=1946',
+  //     category: 'Departure Gift Box',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 57,
+  //     name: 'Pokemon Departure Gift Box : Gardevoir',
+  //     description:
+  //       '1.Supplementary pack (20 pieces) 3 packs \n' +
+  //       '2. Collection of 151 items (20 pictures) 3 packages \n' +
+  //       '3. Departure Package (2 pieces) 6 packages \n' +
+  //       '4. Fire Dragon Departure Theme Art Card Cover (64 pieces) 1 set \n' +
+  //       '5. Fire Dragon Departure Theme Coin Dice 1 piece \n' +
+  //       '6. Injury indicator dice 4 pieces \n' +
+  //       '7. Fire Dragon Departure Theme Card Storage Box (with 2 partitions) 1 piece',
+  //     price: 90,
+  //     image:
+  //       'https://redhatgamecard.com/cdn/shop/files/76b42c12b393ea763fb9088fb40d8a829e86afba-thumb-1000xauto-27422.png?v=1749693198&width=1946',
+  //     category: 'Departure Gift Box',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 58,
+  //     name: 'PTCG Pokemon 10.0 Slim Pack (csv2C)',
+  //     description: 'PTCG Pokemon 10.0 Slim Pack (csv2C)',
+  //     price: 24.99,
+  //     image:
+  //       'https://redhatgamecard.com/cdn/shop/files/MBAN_ceb34304-474b-4179-a1cb-0f88fd0d4e3c.png?v=1752113956&width=1946',
+  //     category: 'Booster Pack',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 59,
+  //     name: 'Pokemon "Collect 151 Journey" Booster Box Slim',
+  //     description:
+  //       'Pokemon Simplified Chinese "Collect 151 Journey" Booster Box Slim',
+  //     price: 70.99,
+  //     image:
+  //       'https://tofutcg.in/wp-content/uploads/2025/02/Untitled-design-2025-02-06T114354.826.png',
+  //     category: 'Booster Box',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 60,
+  //     name: 'Simplified Chinese Pokemon: Gem Pack Vol 2 Booster Box',
+  //     description: 'Simplified Chinese Pokemon: Gem Pack Vol 2 Booster Box',
+  //     price: 60.5,
+  //     image:
+  //       'https://www.hammerheadtcg.co.uk/cdn/shop/files/GemVol2Box.jpg?v=1747040910',
+  //     category: 'Booster Box',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 61,
+  //     name: 'Pokemon Gem Pack Vol.1 Booster Box - Simplified Chinese ',
+  //     description: 'Pokemon Gem Pack Vol.1 Booster Box - Simplified Chinese ',
+  //     price: 55.99,
+  //     image:
+  //       'https://collectorskingdom.co.uk/cdn/shop/files/151GemPack.jpg?v=1739909356',
+  //     category: 'Booster Box',
+  //     categorySet: '',
+  //   },
+  // ];
 
   // private cartSubject: BehaviorSubject<Product[]> = new BehaviorSubject<
   //   Product[]
@@ -809,8 +811,14 @@ export class ShopService {
     }
   }
 
-  public getMockProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>('http://localhost:3000/api/products');
+  public getFilteredProducts(filters: {
+    languageSet?: string;
+    productType?: string;
+  }): Observable<Product[]> {
+    const params = new HttpParams({ fromObject: filters });
+    return this.http.get<Product[]>('http://localhost:3000/api/all-products', {
+      params,
+    });
   }
 
   // public createProduct(product: Product): Observable<Product> {
@@ -820,24 +828,6 @@ export class ShopService {
   // public deleteProduct(id: number): Observable<Product> {
   //   return this.http.delete<Product>(`http://localhost:3000/products/${id}`);
   // }
-
-  public getMockChinese(): Observable<ChineseProduct[]> {
-    return this.http.get<ChineseProduct[]>(
-      'http://localhost:3000/api/chinese-products',
-    );
-  }
-
-  public getMockCards(): Observable<CardList[]> {
-    return this.http.get<CardList[]>('http://localhost:3000/api/cards');
-  }
-
-  public getMockAccessories(): Observable<AccessoriesList[]> {
-    return of(this.accessories);
-  }
-
-  public getMockToys(): Observable<ToysList[]> {
-    return of(this.toys);
-  }
 
   addCartProduct(product: Product): void {
     const updatedCart: NewCart = { ...this.newCartSubject.value };
@@ -913,12 +903,10 @@ export class ShopService {
     this.newCartSubject.next(updatedCart);
     this.storage.set('cart', updatedCart);
   }
-
-  // public getProductsId(id: number): Observable<Product | undefined> {
-  //   return of(this.products.find((product) => product.id === id));
-  // }
-
+  
   public getProductsId(id: number): Observable<Product | undefined> {
-    return this.http.get<Product>(`http://localhost:3000/api/products/${id}`);
+    return this.http.get<Product>(
+      `http://localhost:3000/api/all-products/${id}`,
+    );
   }
 }

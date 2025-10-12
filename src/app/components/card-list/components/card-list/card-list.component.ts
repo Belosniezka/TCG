@@ -35,7 +35,10 @@ export class CardListComponent implements OnInit {
   }
 
   public setCards() {
-    this.cards$ = this.shopService.getMockCards();
+    this.cards$ = this.shopService.getFilteredProducts({
+      languageSet: 'English',
+      productType: 'Cards',
+    });
   }
 
   public addToCart(card: CardList): void {

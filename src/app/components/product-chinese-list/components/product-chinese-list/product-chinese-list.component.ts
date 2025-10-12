@@ -29,7 +29,10 @@ export class ProductChineseListComponent implements OnInit {
   }
 
   public getChinese() {
-    this.chineseProducts$ = this.shopService.getMockChinese();
+    this.chineseProducts$ = this.shopService.getFilteredProducts({
+      languageSet: 'Chinese',
+      productType: 'Sealed',
+    });
   }
 
   addToCart(product: ChineseProduct) {

@@ -17,8 +17,6 @@ import { dateTimestampProvider } from 'rxjs/internal/scheduler/dateTimestampProv
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductListComponent implements OnInit {
-  // public products$: Observable<Product[]> = of([]);
-
   public products$!: Observable<Product[]>;
 
   constructor(
@@ -40,6 +38,9 @@ export class ProductListComponent implements OnInit {
   }
 
   public setProducts(): void {
-    this.products$ = this.shopService.getMockProducts();
+    this.products$ = this.shopService.getFilteredProducts({
+      languageSet: 'English',
+      productType: 'Sealed',
+    });
   }
 }
