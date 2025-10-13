@@ -27,8 +27,8 @@
     }
   </div>
   <div class="order-button">
-    <button [disabled]="(cart$ | async)?.length === 0" class="button" mat-flat-button [routerLink]="['/checkout']"
-            routerLinkActive="active">Checkout
+    <button [disabled]="(cart$ | async)?.length === 0" class="button" mat-flat-button (click)="redirectToCheckout()">
+      Checkout
     </button>
   </div>
 </div>

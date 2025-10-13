@@ -12,6 +12,8 @@ import {
 } from '../../../../services/services.service';
 import { map, Observable } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { AuthService } from '../../../../services/auth.service';
 
 @Component({
   selector: 'app-cart',
@@ -36,15 +38,11 @@ export class CartComponent {
 
   public totalQty$: Observable<number> = this.shopService.totalQty$;
 
-  constructor(private shopService: ShopService) {}
-
-  openSnackBar() {
-    this.snackBar.open('Your order is shipped', 'Thanks bro!', {
-      duration: 3000,
-      horizontalPosition: 'start',
-      verticalPosition: 'bottom',
-    });
-  }
+  constructor(
+    private shopService: ShopService,
+    private router: Router,
+    private authService: AuthService,
+  ) {}
 
   public addToCart(product: Product): void {
     this.shopService.addCartProduct(product);
@@ -58,9 +56,21 @@ export class CartComponent {
     this.redirectToProduct.emit(id);
   }
 
+  public redirectToCheckout(): void {
+    this.authService.isLoggedIn$.subscribe((isLoggedIn) => {
+      if (!isLoggedIn) {
+        this.snackBar.open('Please Log In for order!', 'Ok', {
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+          duration: 3000,
+        });
+      } else {
+        void this.router.navigate(['/checkout']);
+      }
+    });
+  }
+
   public removeAllFromCart(): void {
     this.shopService.removeAllFromCart();
   }
-
-  protected readonly length = length;
 }

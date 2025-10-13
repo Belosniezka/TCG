@@ -14,6 +14,7 @@ import {
 import { Router } from '@angular/router';
 import { tap } from 'rxjs';
 import { AuthService } from '../../../../services/auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-authorization',
@@ -23,6 +24,8 @@ import { AuthService } from '../../../../services/auth.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuthorizationComponent {
+  private _snackBar = inject(MatSnackBar);
+
   private fb = inject(FormBuilder);
 
   constructor(
@@ -42,16 +45,30 @@ export class AuthorizationComponent {
         next: (res) => {
           this.authService.login(res.token);
           void this.router.navigate(['/main-page']);
+          this._snackBar.open('You loged in!', 'Ok', {
+            horizontalPosition: 'center',
+            verticalPosition: 'bottom',
+            duration: 3000,
+          });
         },
         error: () => {
           alert('Wrong email or password!');
         },
       });
+    } else {
+      this._snackBar.open('Wrong email or password!', 'Ok', {
+        horizontalPosition: 'center',
+        verticalPosition: 'bottom',
+        duration: 3000,
+      });
     }
-
-    // public login(): void {
-    //   this._userService.login();
-    //   void this.router.navigate(['/user']);
-    // }
   }
+
+  // public openSnackBar() {
+  //   this._snackBar.open('Cannonball!!', 'Splash', {
+  //     horizontalPosition: 'center',
+  //     verticalPosition: 'bottom',
+  //     duration: 2000,
+  //   });
+  // }
 }

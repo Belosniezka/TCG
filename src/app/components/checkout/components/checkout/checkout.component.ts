@@ -8,6 +8,7 @@ import { combineLatest, map, Observable, take } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../../../services/user.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-checkout',
@@ -17,6 +18,7 @@ import { Router } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CheckoutComponent {
+  private _snackBar = inject(MatSnackBar);
   private _fb = inject(FormBuilder);
 
   public cart$: Observable<CartItem[]> = this.shopService.newCart$.pipe(
@@ -69,46 +71,51 @@ export class CheckoutComponent {
   }
 
   public submitOrder() {
-    if (!this.checkoutForm.valid) {
-      this.checkoutForm.markAllAsTouched();
-      return;
-    }
-
-    combineLatest([this.cart$, this.totalPrice$])
-      .pipe(take(1))
-      .subscribe(([cart, totalPrice]) => {
-        const form = this.checkoutForm.getRawValue() as {
-          personalInfo: { firstName: string; lastName: string };
-          delivery: {
-            country: string;
-            city: string;
-            address: string;
-            zipCode: string;
+    if (this.checkoutForm.valid) {
+      combineLatest([this.cart$, this.totalPrice$])
+        .pipe(take(1))
+        .subscribe(([cart, totalPrice]) => {
+          const form = this.checkoutForm.getRawValue() as {
+            personalInfo: { firstName: string; lastName: string };
+            delivery: {
+              country: string;
+              city: string;
+              address: string;
+              zipCode: string;
+            };
           };
-        };
 
-        const order = {
-          firstName: form.personalInfo.firstName,
-          lastName: form.personalInfo.lastName,
-          country: form.delivery.country,
-          city: form.delivery.city,
-          address: form.delivery.address,
-          zipCode: form.delivery.zipCode,
-          totalPrice,
-          items: cart.map((item) => ({
-            productId: item.product.id,
-            name: item.product.name,
-            price: +item.product.price,
-            quantity: item.amount,
-          })),
-        };
-        console.log(order);
-
-        this.userService.addToCheckout(order).subscribe(() => {
-          this.shopService.removeAllFromCart();
-          alert('Заказ успешно создан!');
-          void this.router.navigate(['/main-page']);
+          const order = {
+            firstName: form.personalInfo.firstName,
+            lastName: form.personalInfo.lastName,
+            country: form.delivery.country,
+            city: form.delivery.city,
+            address: form.delivery.address,
+            zipCode: form.delivery.zipCode,
+            totalPrice,
+            items: cart.map((item) => ({
+              productId: item.product.id,
+              name: item.product.name,
+              price: +item.product.price,
+              quantity: item.amount,
+            })),
+          };
+          this.userService.addToCheckout(order).subscribe(() => {
+            this.shopService.removeAllFromCart();
+            this._snackBar.open('Order was successfully created!', 'Ok', {
+              horizontalPosition: 'center',
+              verticalPosition: 'bottom',
+              duration: 3000,
+            });
+            void this.router.navigate(['/main-page']);
+          });
         });
+    } else {
+      this._snackBar.open('Something went wrong!', 'Ok', {
+        horizontalPosition: 'center',
+        verticalPosition: 'bottom',
+        duration: 3000,
       });
+    }
   }
 }

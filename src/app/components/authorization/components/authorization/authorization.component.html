@@ -22,7 +22,7 @@
         }
       </mat-form-field>
       <div class="sign-in">
-        <button mat-fab extended (click)="login()">
+        <button [disabled]="myForm.invalid" mat-fab extended (click)="login()">
           SIGN IN
         </button>
       </div>
