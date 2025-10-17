@@ -24,6 +24,28 @@
   margin: 8px;
   background-color: white;
   border-radius: 10px;
+  position: relative;
+
+  &.out-of-stock img {
+    filter: grayscale(100%) brightness(60%);
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    pointer-events: none;
+    z-index: 1;
+    text-align: center;
+    white-space: nowrap;
+  }
 
   img[mat-card-image] {
     padding: 4px;
@@ -31,6 +53,7 @@
     height: 100%;
     width: 100%;
   }
+
 }
 
 .content {

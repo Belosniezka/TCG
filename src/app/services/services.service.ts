@@ -11,6 +11,7 @@ export interface Product {
   image: string;
   category: string;
   categorySet: string;
+  qty: number;
   // languageSet: string;
   // productType: string;
 }
@@ -23,6 +24,7 @@ export interface CardList {
   image: string;
   category: string;
   categorySet: string;
+  qty: number;
 }
 
 export interface AccessoriesList {
@@ -33,6 +35,7 @@ export interface AccessoriesList {
   image: string;
   category: string;
   categorySet: string;
+  qty: number;
 }
 
 export interface ToysList {
@@ -43,6 +46,7 @@ export interface ToysList {
   image: string;
   category: string;
   categorySet: string;
+  qty: number;
 }
 
 export interface ChineseProduct {
@@ -53,6 +57,7 @@ export interface ChineseProduct {
   image: string;
   category: string;
   categorySet: string;
+  qty: number;
 }
 
 // export interface CardsItems {
@@ -77,338 +82,338 @@ export interface NewCart {
   providedIn: 'root',
 })
 export class ShopService {
-  private toys: ToysList[] = [
-    {
-      id: 1,
-      name: 'Birthday Pikachu Poké Plush - 9 In.',
-      description:
-        "With a colorful hat and shimmery present, Pikachu's all dressed up and ready to celebrate someone's birthday! Whether you gift this fun plush to a friend or display it as a centerpiece to celebrate your own special day, it's an easy way to spread the joy ",
-      price: 24.99,
-      image:
-        'https://www.pokemoncenter.com/images/DAMRoot/High/10005/P10573_701E13511_01.jpg',
-      category: 'Plush',
-      categorySet: '',
-    },
-    {
-      id: 2,
-      name: 'Ditto As Lucario Plush - 8 ¼ In.',
-      description:
-        "Ditto is pretending to be Lucario! How can you tell? It's all in the eyes! Enjoy Ditto taking on lots of different looks in the Ditto As collection.",
-      price: 16.99,
-      image:
-        'https://www.pokemoncenter.com/images/DAMRoot/High/10011/P10819_72-10361-101_01.jpg',
-      category: 'Plush',
-      categorySet: '',
-    },
-    {
-      id: 3,
-      name: 'Garchomp Raging Fury Figure by First 4 Figures',
-      description:
-        "Leaping into the air with daunting swipes of its clawed wings, Garchomp is the ferocious star of this limited edition Pokémon collectible made by First 4 Figures. Push the button on the back of the figure's round base to illuminate the purple attack ",
-      price: 249.99,
-      image:
-        'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P9911_703E12525_01.jpg',
-      category: 'Figures',
-      categorySet: '',
-    },
-    {
-      id: 4,
-      name: 'Iris & Salamence Pokémon Trainers Figure',
-      description:
-        'Iris has an impressive track record as a Pokémon Trainer, working her way up from Opelucid Gym Leader to Champion of the Unova region at a young age! Her partner Pokémon, Salamence, also made its dreams come true by gaining wings upon ',
-      price: 49.99,
-      image:
-        'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P9613_703E12202_01.jpg',
-      category: 'Figures',
-      categorySet: '',
-    },
-    {
-      id: 5,
-      name: 'Kotobukiya Arceus Figure',
-      description:
-        'A collectible Kotobukiya figure featuring Arceus has arrived at Pokémon Center! The Mythical Pokémon dashes across the ruined landscape of Sinnoh’s Spear Pillar as fiery comets appear to shatter its rocklike display base. This is a definitive figure for ',
-      price: 169.99,
-      image:
-        'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P9073_710-96728_01.jpg',
-      category: 'Figures',
-      categorySet: '',
-    },
-    {
-      id: 6,
-      name: 'Togepi Pokémon Pin',
-      description:
-        'It’s easy to show off your favorite Pokémon wherever you go with a too-cool Pokémon Pin! Featuring Togepi, the Spike Ball Pokémon, this collectible accessory is made of shining metal and colorful enamel, and it comes with two rubbery backers ',
-      price: 8.99,
-      image:
-        'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10008/P10605_70-10204-101_01.jpg',
-      category: 'Pins',
-      categorySet: '',
-    },
-    {
-      id: 7,
-      name: 'Roaring Moon Pokémon Pin',
-      description:
-        "It's easy to show off your favorite Pokémon wherever you go with an eye-catching Pokémon Pin! Featuring Roaring Moon, a Paradox Pokémon, this collectible accessory is made of shining metal and colorful enamel, and it comes with two rubbery backers ",
-      price: 8.99,
-      image:
-        'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P9892_710E11050_01.jpg',
-      category: 'Pins',
-      categorySet: '',
-    },
-  ];
+  // private toys: ToysList[] = [
+  //   {
+  //     id: 1,
+  //     name: 'Birthday Pikachu Poké Plush - 9 In.',
+  //     description:
+  //       "With a colorful hat and shimmery present, Pikachu's all dressed up and ready to celebrate someone's birthday! Whether you gift this fun plush to a friend or display it as a centerpiece to celebrate your own special day, it's an easy way to spread the joy ",
+  //     price: 24.99,
+  //     image:
+  //       'https://www.pokemoncenter.com/images/DAMRoot/High/10005/P10573_701E13511_01.jpg',
+  //     category: 'Plush',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 2,
+  //     name: 'Ditto As Lucario Plush - 8 ¼ In.',
+  //     description:
+  //       "Ditto is pretending to be Lucario! How can you tell? It's all in the eyes! Enjoy Ditto taking on lots of different looks in the Ditto As collection.",
+  //     price: 16.99,
+  //     image:
+  //       'https://www.pokemoncenter.com/images/DAMRoot/High/10011/P10819_72-10361-101_01.jpg',
+  //     category: 'Plush',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 3,
+  //     name: 'Garchomp Raging Fury Figure by First 4 Figures',
+  //     description:
+  //       "Leaping into the air with daunting swipes of its clawed wings, Garchomp is the ferocious star of this limited edition Pokémon collectible made by First 4 Figures. Push the button on the back of the figure's round base to illuminate the purple attack ",
+  //     price: 249.99,
+  //     image:
+  //       'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P9911_703E12525_01.jpg',
+  //     category: 'Figures',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 4,
+  //     name: 'Iris & Salamence Pokémon Trainers Figure',
+  //     description:
+  //       'Iris has an impressive track record as a Pokémon Trainer, working her way up from Opelucid Gym Leader to Champion of the Unova region at a young age! Her partner Pokémon, Salamence, also made its dreams come true by gaining wings upon ',
+  //     price: 49.99,
+  //     image:
+  //       'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P9613_703E12202_01.jpg',
+  //     category: 'Figures',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 5,
+  //     name: 'Kotobukiya Arceus Figure',
+  //     description:
+  //       'A collectible Kotobukiya figure featuring Arceus has arrived at Pokémon Center! The Mythical Pokémon dashes across the ruined landscape of Sinnoh’s Spear Pillar as fiery comets appear to shatter its rocklike display base. This is a definitive figure for ',
+  //     price: 169.99,
+  //     image:
+  //       'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P9073_710-96728_01.jpg',
+  //     category: 'Figures',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 6,
+  //     name: 'Togepi Pokémon Pin',
+  //     description:
+  //       'It’s easy to show off your favorite Pokémon wherever you go with a too-cool Pokémon Pin! Featuring Togepi, the Spike Ball Pokémon, this collectible accessory is made of shining metal and colorful enamel, and it comes with two rubbery backers ',
+  //     price: 8.99,
+  //     image:
+  //       'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10008/P10605_70-10204-101_01.jpg',
+  //     category: 'Pins',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 7,
+  //     name: 'Roaring Moon Pokémon Pin',
+  //     description:
+  //       "It's easy to show off your favorite Pokémon wherever you go with an eye-catching Pokémon Pin! Featuring Roaring Moon, a Paradox Pokémon, this collectible accessory is made of shining metal and colorful enamel, and it comes with two rubbery backers ",
+  //     price: 8.99,
+  //     image:
+  //       'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10000/P9892_710E11050_01.jpg',
+  //     category: 'Pins',
+  //     categorySet: '',
+  //   },
+  // ];
 
-  private accessories: AccessoriesList[] = [
-    {
-      id: 8,
-      name: 'Pokémon TCG: Caterpie Munch Time Card Sleeves (65 Sleeves)',
-      description:
-        'Caterpie takes time for a little snack on this set that includes enough sleeves for your full deck—with a few extra, too!',
-      price: 6.99,
-      image:
-        'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10007/P10301_705E13122_01.jpg',
-      category: 'Card Sleeves',
-      categorySet: '',
-    },
-    {
-      id: 9,
-      name: 'Pokémon TCG: Mythical Mew Playmat',
-      description:
-        'Mew frolics on this playmat that’s sized just right for even the fiercest of battles. When you aren’t playing, it’s a perfect way to add pizzazz to your workspace.',
-      price: 19.99,
-      image:
-        'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10007/P10301_705E13114_01.jpg',
-      category: 'Playmats',
-      categorySet: '',
-    },
-    {
-      id: 10,
-      name: 'Pokémon TCG: Caterpie Munch Time Playmat',
-      description:
-        'Take a bite out of TCG battles with a little help from Caterpie! The Worm Pokémon frolics on this playmat that’s sized just right for even the fiercest of battles. When you aren’t playing, it’s a perfect way to add pizzazz to your workspace.',
-      price: 19.99,
-      image:
-        'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10007/P10301_705E13109_01.jpg',
-      category: 'Playmats',
-      categorySet: '',
-    },
-    {
-      id: 11,
-      name: 'Pokémon TCG: Varoom & Revavroom Playmat',
-      description:
-        'Varoom and Revavroom pose on this playmat that’s sized just right for even the fiercest of battles. When you aren’t playing, it’s a perfect way to add pizzazz to your workspace.',
-      price: 19.99,
-      image:
-        'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10007/P10301_705E13113_01.jpg',
-      category: 'Playmats',
-      categorySet: '',
-    },
-    {
-      id: 12,
-      name: 'Pokémon TCG: Roaring Moon & Iron Valiant Double Deck Box',
-      description:
-        'Protect your favorite decks with a little help from Roaring Moon and Iron Valiant! Your cards can stay in battle-ready condition with help from two dividers and a magnetic closure that keeps everything in its place—this box is sure to delight players ',
-      price: 11.99,
-      image:
-        'https://www.pokemoncenter.com/images/DAMRoot/High/10007/P10301_705E13118_01.jpg',
-      category: 'Deck Boxes',
-      categorySet: '',
-    },
-    {
-      id: 13,
-      name: 'Pokémon TCG: Midnight Agent Card Sleeves (65 Sleeves)',
-      description:
-        'Greninja takes center stage in a comic book-inspired design on this set that includes enough sleeves for your full deck—with a few extra, too!',
-      price: 6.99,
-      image:
-        'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10007/P10301_705E13146_01.jpg',
-      category: 'Card Sleeves',
-      categorySet: '',
-    },
-    {
-      id: 14,
-      name: 'Pokémon TCG: Wetland Wonders Deck Box',
-      description:
-        'Protect your favorite decks with a little help from Paldean Wooper and Clodsire! Your cards can stay in battle-ready condition in this deck box that boasts a design that shows off the adorable duo. A magnetic closure keeps everything in its place—this  ',
-      price: 7.99,
-      image:
-        'https://www.pokemoncenter.com/images/DAMRoot/High/10007/P10301_705E13106_01.jpg',
-      category: 'Deck Boxes',
-      categorySet: '',
-    },
-  ];
+  // private accessories: AccessoriesList[] = [
+  //   {
+  //     id: 8,
+  //     name: 'Pokémon TCG: Caterpie Munch Time Card Sleeves (65 Sleeves)',
+  //     description:
+  //       'Caterpie takes time for a little snack on this set that includes enough sleeves for your full deck—with a few extra, too!',
+  //     price: 6.99,
+  //     image:
+  //       'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10007/P10301_705E13122_01.jpg',
+  //     category: 'Card Sleeves',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 9,
+  //     name: 'Pokémon TCG: Mythical Mew Playmat',
+  //     description:
+  //       'Mew frolics on this playmat that’s sized just right for even the fiercest of battles. When you aren’t playing, it’s a perfect way to add pizzazz to your workspace.',
+  //     price: 19.99,
+  //     image:
+  //       'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10007/P10301_705E13114_01.jpg',
+  //     category: 'Playmats',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 10,
+  //     name: 'Pokémon TCG: Caterpie Munch Time Playmat',
+  //     description:
+  //       'Take a bite out of TCG battles with a little help from Caterpie! The Worm Pokémon frolics on this playmat that’s sized just right for even the fiercest of battles. When you aren’t playing, it’s a perfect way to add pizzazz to your workspace.',
+  //     price: 19.99,
+  //     image:
+  //       'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10007/P10301_705E13109_01.jpg',
+  //     category: 'Playmats',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 11,
+  //     name: 'Pokémon TCG: Varoom & Revavroom Playmat',
+  //     description:
+  //       'Varoom and Revavroom pose on this playmat that’s sized just right for even the fiercest of battles. When you aren’t playing, it’s a perfect way to add pizzazz to your workspace.',
+  //     price: 19.99,
+  //     image:
+  //       'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10007/P10301_705E13113_01.jpg',
+  //     category: 'Playmats',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 12,
+  //     name: 'Pokémon TCG: Roaring Moon & Iron Valiant Double Deck Box',
+  //     description:
+  //       'Protect your favorite decks with a little help from Roaring Moon and Iron Valiant! Your cards can stay in battle-ready condition with help from two dividers and a magnetic closure that keeps everything in its place—this box is sure to delight players ',
+  //     price: 11.99,
+  //     image:
+  //       'https://www.pokemoncenter.com/images/DAMRoot/High/10007/P10301_705E13118_01.jpg',
+  //     category: 'Deck Boxes',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 13,
+  //     name: 'Pokémon TCG: Midnight Agent Card Sleeves (65 Sleeves)',
+  //     description:
+  //       'Greninja takes center stage in a comic book-inspired design on this set that includes enough sleeves for your full deck—with a few extra, too!',
+  //     price: 6.99,
+  //     image:
+  //       'https://www.pokemoncenter.com/images/DAMRoot/Full-Size/10007/P10301_705E13146_01.jpg',
+  //     category: 'Card Sleeves',
+  //     categorySet: '',
+  //   },
+  //   {
+  //     id: 14,
+  //     name: 'Pokémon TCG: Wetland Wonders Deck Box',
+  //     description:
+  //       'Protect your favorite decks with a little help from Paldean Wooper and Clodsire! Your cards can stay in battle-ready condition in this deck box that boasts a design that shows off the adorable duo. A magnetic closure keeps everything in its place—this  ',
+  //     price: 7.99,
+  //     image:
+  //       'https://www.pokemoncenter.com/images/DAMRoot/High/10007/P10301_705E13106_01.jpg',
+  //     category: 'Deck Boxes',
+  //     categorySet: '',
+  //   },
+  // ];
 
-  private cards: CardList[] = [
-    {
-      id: 15,
-      name: 'N.s Reshiram',
-      description: '',
-      price: 14.99,
-      image:
-        'https://dz3we2x72f7ol.cloudfront.net/expansions/journey-together/en-us/SV09_EN_167-2x.png',
-      category: 'card',
-      categorySet: 'Journey Together',
-    },
-    {
-      id: 16,
-      name: 'Lillie.s Ribombee',
-      description: '',
-      price: 6.99,
-      image:
-        'https://dz3we2x72f7ol.cloudfront.net/expansions/journey-together/en-us/SV09_EN_164-2x.png',
-      category: 'card',
-      categorySet: 'Journey Together',
-    },
-    {
-      id: 17,
-      name: 'Volcanion EX',
-      description: '',
-      price: 28.49,
-      image:
-        'https://dz3we2x72f7ol.cloudfront.net/expansions/journey-together/en-us/SV09_EN_182-2x.png',
-      category: 'card',
-      categorySet: 'Journey Together',
-    },
-    {
-      id: 18,
-      name: 'Iono.s Bellibolt EX',
-      description: '',
-      price: 40,
-      image:
-        'https://dz3we2x72f7ol.cloudfront.net/expansions/journey-together/en-us/SV09_EN_172-2x.png',
-      category: 'card',
-      categorySet: 'Journey Together',
-    },
-    {
-      id: 19,
-      name: 'Lillie.s Clefairy EX',
-      description: '',
-      price: 149.99,
-      image:
-        'https://dz3we2x72f7ol.cloudfront.net/expansions/journey-together/en-us/SV09_EN_184-2x.png',
-      category: 'card',
-      categorySet: 'Journey Together',
-    },
-    {
-      id: 20,
-      name: 'N.s Zoroark EX',
-      description: '',
-      price: 130,
-      image:
-        'https://dz3we2x72f7ol.cloudfront.net/expansions/journey-together/en-us/SV09_EN_185-2x.png',
-      category: 'card',
-      categorySet: 'Journey Together',
-    },
-    {
-      id: 21,
-      name: 'Hop.s Zacian EX',
-      description: '',
-      price: 109.99,
-      image:
-        'https://dz3we2x72f7ol.cloudfront.net/expansions/journey-together/en-us/SV09_EN_186-2x.png',
-      category: 'card',
-      categorySet: 'Journey Together',
-    },
-    {
-      id: 22,
-      name: 'Salamence EX',
-      description: '',
-      price: 80,
-      image:
-        'https://dz3we2x72f7ol.cloudfront.net/expansions/journey-together/en-us/SV09_EN_187-2x.png',
-      category: 'card',
-      categorySet: 'Journey Together',
-    },
-    {
-      id: 23,
-      name: 'Articuno',
-      description: '',
-      price: 24.99,
-      image:
-        'https://dz3we2x72f7ol.cloudfront.net/expansions/journey-together/en-us/SV09_EN_161-2x.png',
-      category: 'card',
-      categorySet: 'Journey Together',
-    },
-    {
-      id: 24,
-      name: 'Wailord',
-      description: '',
-      price: 14.99,
-      image:
-        'https://dz3we2x72f7ol.cloudfront.net/expansions/journey-together/en-us/SV09_EN_162-2x.png',
-      category: 'card',
-      categorySet: 'Journey Together',
-    },
-    {
-      id: 25,
-      name: 'Volcanion EX',
-      description: '',
-      price: 3.99,
-      image:
-        'https://dz3we2x72f7ol.cloudfront.net/expansions/journey-together/en-us/SV09_EN_171-2x.png',
-      category: 'card',
-      categorySet: 'Journey Together',
-    },
-    {
-      id: 26,
-      name: 'Flareon EX',
-      description: '',
-      price: 400,
-      image:
-        'https://dz3we2x72f7ol.cloudfront.net/expansions/prismatic-evolutions/en-us/SV8pt5_EN_146-2x.png',
-      category: 'card',
-      categorySet: 'Prismatic Evolutions',
-    },
-    {
-      id: 27,
-      name: 'Ceruledge EX',
-      description: '',
-      price: 120,
-      image:
-        'https://dz3we2x72f7ol.cloudfront.net/expansions/prismatic-evolutions/en-us/SV8pt5_EN_147-2x.png',
-      category: 'card',
-      categorySet: 'Prismatic Evolutions',
-    },
-    {
-      id: 28,
-      name: 'Vaporeon EX',
-      description: '',
-      price: 390,
-      image:
-        'https://dz3we2x72f7ol.cloudfront.net/expansions/prismatic-evolutions/en-us/SV8pt5_EN_149-2x.png',
-      category: 'card',
-      categorySet: 'Prismatic Evolutions',
-    },
-    {
-      id: 29,
-      name: 'Glaceon EX',
-      description: '',
-      price: 380,
-      image:
-        'https://dz3we2x72f7ol.cloudfront.net/expansions/prismatic-evolutions/en-us/SV8pt5_EN_150-2x.png',
-      category: 'card',
-      categorySet: 'Prismatic Evolutions',
-    },
-    {
-      id: 30,
-      name: 'Jolteon EX',
-      description: '',
-      price: 330,
-      image:
-        'https://dz3we2x72f7ol.cloudfront.net/expansions/prismatic-evolutions/en-us/SV8pt5_EN_153-2x.png',
-      category: 'card',
-      categorySet: 'Prismatic Evolutions',
-    },
-    {
-      id: 31,
-      name: 'Umbreon EX',
-      description: '',
-      price: 1499.99,
-      image:
-        'https://dz3we2x72f7ol.cloudfront.net/expansions/prismatic-evolutions/en-us/SV8pt5_EN_161-2x.png',
-      category: 'card',
-      categorySet: 'Prismatic Evolutions',
-    },
-  ];
+  // private cards: CardList[] = [
+  //   {
+  //     id: 15,
+  //     name: 'N.s Reshiram',
+  //     description: '',
+  //     price: 14.99,
+  //     image:
+  //       'https://dz3we2x72f7ol.cloudfront.net/expansions/journey-together/en-us/SV09_EN_167-2x.png',
+  //     category: 'card',
+  //     categorySet: 'Journey Together',
+  //   },
+  //   {
+  //     id: 16,
+  //     name: 'Lillie.s Ribombee',
+  //     description: '',
+  //     price: 6.99,
+  //     image:
+  //       'https://dz3we2x72f7ol.cloudfront.net/expansions/journey-together/en-us/SV09_EN_164-2x.png',
+  //     category: 'card',
+  //     categorySet: 'Journey Together',
+  //   },
+  //   {
+  //     id: 17,
+  //     name: 'Volcanion EX',
+  //     description: '',
+  //     price: 28.49,
+  //     image:
+  //       'https://dz3we2x72f7ol.cloudfront.net/expansions/journey-together/en-us/SV09_EN_182-2x.png',
+  //     category: 'card',
+  //     categorySet: 'Journey Together',
+  //   },
+  //   {
+  //     id: 18,
+  //     name: 'Iono.s Bellibolt EX',
+  //     description: '',
+  //     price: 40,
+  //     image:
+  //       'https://dz3we2x72f7ol.cloudfront.net/expansions/journey-together/en-us/SV09_EN_172-2x.png',
+  //     category: 'card',
+  //     categorySet: 'Journey Together',
+  //   },
+  //   {
+  //     id: 19,
+  //     name: 'Lillie.s Clefairy EX',
+  //     description: '',
+  //     price: 149.99,
+  //     image:
+  //       'https://dz3we2x72f7ol.cloudfront.net/expansions/journey-together/en-us/SV09_EN_184-2x.png',
+  //     category: 'card',
+  //     categorySet: 'Journey Together',
+  //   },
+  //   {
+  //     id: 20,
+  //     name: 'N.s Zoroark EX',
+  //     description: '',
+  //     price: 130,
+  //     image:
+  //       'https://dz3we2x72f7ol.cloudfront.net/expansions/journey-together/en-us/SV09_EN_185-2x.png',
+  //     category: 'card',
+  //     categorySet: 'Journey Together',
+  //   },
+  //   {
+  //     id: 21,
+  //     name: 'Hop.s Zacian EX',
+  //     description: '',
+  //     price: 109.99,
+  //     image:
+  //       'https://dz3we2x72f7ol.cloudfront.net/expansions/journey-together/en-us/SV09_EN_186-2x.png',
+  //     category: 'card',
+  //     categorySet: 'Journey Together',
+  //   },
+  //   {
+  //     id: 22,
+  //     name: 'Salamence EX',
+  //     description: '',
+  //     price: 80,
+  //     image:
+  //       'https://dz3we2x72f7ol.cloudfront.net/expansions/journey-together/en-us/SV09_EN_187-2x.png',
+  //     category: 'card',
+  //     categorySet: 'Journey Together',
+  //   },
+  //   {
+  //     id: 23,
+  //     name: 'Articuno',
+  //     description: '',
+  //     price: 24.99,
+  //     image:
+  //       'https://dz3we2x72f7ol.cloudfront.net/expansions/journey-together/en-us/SV09_EN_161-2x.png',
+  //     category: 'card',
+  //     categorySet: 'Journey Together',
+  //   },
+  //   {
+  //     id: 24,
+  //     name: 'Wailord',
+  //     description: '',
+  //     price: 14.99,
+  //     image:
+  //       'https://dz3we2x72f7ol.cloudfront.net/expansions/journey-together/en-us/SV09_EN_162-2x.png',
+  //     category: 'card',
+  //     categorySet: 'Journey Together',
+  //   },
+  //   {
+  //     id: 25,
+  //     name: 'Volcanion EX',
+  //     description: '',
+  //     price: 3.99,
+  //     image:
+  //       'https://dz3we2x72f7ol.cloudfront.net/expansions/journey-together/en-us/SV09_EN_171-2x.png',
+  //     category: 'card',
+  //     categorySet: 'Journey Together',
+  //   },
+  //   {
+  //     id: 26,
+  //     name: 'Flareon EX',
+  //     description: '',
+  //     price: 400,
+  //     image:
+  //       'https://dz3we2x72f7ol.cloudfront.net/expansions/prismatic-evolutions/en-us/SV8pt5_EN_146-2x.png',
+  //     category: 'card',
+  //     categorySet: 'Prismatic Evolutions',
+  //   },
+  //   {
+  //     id: 27,
+  //     name: 'Ceruledge EX',
+  //     description: '',
+  //     price: 120,
+  //     image:
+  //       'https://dz3we2x72f7ol.cloudfront.net/expansions/prismatic-evolutions/en-us/SV8pt5_EN_147-2x.png',
+  //     category: 'card',
+  //     categorySet: 'Prismatic Evolutions',
+  //   },
+  //   {
+  //     id: 28,
+  //     name: 'Vaporeon EX',
+  //     description: '',
+  //     price: 390,
+  //     image:
+  //       'https://dz3we2x72f7ol.cloudfront.net/expansions/prismatic-evolutions/en-us/SV8pt5_EN_149-2x.png',
+  //     category: 'card',
+  //     categorySet: 'Prismatic Evolutions',
+  //   },
+  //   {
+  //     id: 29,
+  //     name: 'Glaceon EX',
+  //     description: '',
+  //     price: 380,
+  //     image:
+  //       'https://dz3we2x72f7ol.cloudfront.net/expansions/prismatic-evolutions/en-us/SV8pt5_EN_150-2x.png',
+  //     category: 'card',
+  //     categorySet: 'Prismatic Evolutions',
+  //   },
+  //   {
+  //     id: 30,
+  //     name: 'Jolteon EX',
+  //     description: '',
+  //     price: 330,
+  //     image:
+  //       'https://dz3we2x72f7ol.cloudfront.net/expansions/prismatic-evolutions/en-us/SV8pt5_EN_153-2x.png',
+  //     category: 'card',
+  //     categorySet: 'Prismatic Evolutions',
+  //   },
+  //   {
+  //     id: 31,
+  //     name: 'Umbreon EX',
+  //     description: '',
+  //     price: 1499.99,
+  //     image:
+  //       'https://dz3we2x72f7ol.cloudfront.net/expansions/prismatic-evolutions/en-us/SV8pt5_EN_161-2x.png',
+  //     category: 'card',
+  //     categorySet: 'Prismatic Evolutions',
+  //   },
+  // ];
 
   // private products: Product[] = [
   //   {
@@ -903,7 +908,7 @@ export class ShopService {
     this.newCartSubject.next(updatedCart);
     this.storage.set('cart', updatedCart);
   }
-  
+
   public getProductsId(id: number): Observable<Product | undefined> {
     return this.http.get<Product>(
       `http://localhost:3000/api/all-products/${id}`,

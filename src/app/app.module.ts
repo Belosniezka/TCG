@@ -24,7 +24,9 @@ import { MainPageModule } from './components/main-page/main-page.module';
 import { ProductsChineseModule } from './components/product-chinese-list/products-chinese.module';
 import { CheckoutModule } from './components/checkout/components/checkout.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { AuthInterceptor } from './components/authorization/interceptor/auth.interceptor';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { errorInterceptor } from './interceptors/error.interceptor';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [AppComponent],
@@ -54,11 +56,17 @@ import { AuthInterceptor } from './components/authorization/interceptor/auth.int
     ProductsChineseModule,
     CheckoutModule,
     HttpClientModule,
+    MatSnackBarModule,
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: errorInterceptor,
       multi: true,
     },
   ],

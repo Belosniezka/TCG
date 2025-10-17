@@ -24,7 +24,8 @@
           <button (click)="plusCounter()" mat-flat-button>+</button>
         </div>
         <div class="add-button">
-          <button (click)="addToCart(product, counter())" mat-flat-button>Add to Basket</button>
+          <button (click)="addToCart(product, counter())" mat-flat-button [disabled]="product.qty === 0">Add to Basket
+          </button>
         </div>
       </div>
     </mat-dialog-actions>

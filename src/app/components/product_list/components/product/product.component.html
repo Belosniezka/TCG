@@ -1,9 +1,13 @@
 <div class="data">
   <mat-card class="example-product" appearance="outlined">
-    <div class="image">
+    <div class="image" [class.out-of-stock]="product.qty === 0">
       <img mat-card-image
            src="{{product.image}}"
-           alt="Photo of Apple">
+           alt="{{ product.name }}">
+
+      <div class="overlay" *ngIf="product.qty === 0">
+        OUT OF STOCK
+      </div>
     </div>
     <div class="content">
       <div class="custom-content">
@@ -11,7 +15,7 @@
         <p class="subtitle">{{ product.price | currency }}</p>
       </div>
       <div class="custom-action">
-        <button (click)="addToCart(product)" mat-button>Add</button>
+        <button (click)="addToCart(product)" mat-button [disabled]="product.qty === 0">Add</button>
         <button (click)="redirectTo(product.id)" mat-button>Info</button>
         <button (click)="openModal(product.id)" mat-button>Quick View</button>
       </div>
