@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import {
   AccessoriesList,
-  CardList,
   ShopService,
 } from '../../../../services/services.service';
 

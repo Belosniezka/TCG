@@ -20,19 +20,10 @@ import { NewModalComponent } from '../../../modalka/new-modal/new-modal.componen
 })
 export class ProductComponent {
   dialog = inject(MatDialog);
-  private snackBar = inject(MatSnackBar);
   @Input() product!: Product;
   @Output() addProduct: EventEmitter<Product> = new EventEmitter<Product>();
   @Output() redirectToProduct: EventEmitter<number> =
     new EventEmitter<number>();
-
-  openSnackBar() {
-    this.snackBar.open('Your order is shipped', 'Thanks bro!', {
-      duration: 3000,
-      horizontalPosition: 'start',
-      verticalPosition: 'bottom',
-    });
-  }
 
   public openModal(productId: number): void {
     const dialogRef = this.dialog.open(NewModalComponent, {
@@ -41,15 +32,6 @@ export class ProductComponent {
       height: '500px',
     });
   }
-
-  // public openModal(): void {
-  //   const dialogRef =  this.dialog.open(NewModalComponent,{ data : '1 x Huge Dildo'});
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     if(result) {
-  //       this.openSnackBar()
-  //     }
-  //   });
-  // }
 
   addToCart(product: Product): void {
     this.addProduct.emit(product);

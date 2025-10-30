@@ -3,13 +3,6 @@
   padding: 3px;
 }
 
-.free {
-  color: #e85d41;
-  display: flex;
-  justify-content: center;
-  border-bottom: white solid 2px;
-}
-
 .head {
   /*background: linear-gradient(#ff6a14, wheat);*/
   /*background: linear-gradient(#333, white);*/
@@ -44,14 +37,12 @@
 
 }
 
-.drower {
-  /*background: wheat;*/
-}
 
 .cart-content {
   border-radius: 0;
   width: 450px;
   padding: 6px;
+  background-color: #333;
 }
 
 .example-container {

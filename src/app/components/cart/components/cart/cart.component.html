@@ -17,10 +17,15 @@
         <app-cart-data [item]="cart"></app-cart-data>
         <div class="action">
           <p class="desck" (click)="redirectTo(cart.product.id)">{{ cart.product.name }}</p>
-          <div class="action-buttons">
-            <button (click)="addToCart(cart.product)" mat-flat-button>+</button>
-            <p>{{ cart.amount }}</p>
-            <button (click)="minusFromCart(cart.product)" mat-flat-button>-</button>
+          <div class="price">
+            <div>
+              <p>{{ cart.product.price | currency }}</p>
+            </div>
+            <div class="action-buttons">
+              <button (click)="addToCart(cart.product)" mat-flat-button>+</button>
+              <p>{{ cart.amount }}</p>
+              <button (click)="minusFromCart(cart.product)" mat-flat-button>-</button>
+            </div>
           </div>
         </div>
       </div>

@@ -7,8 +7,8 @@
         </div>
       </div>
 
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next mySwiper-next"></div>
+      <div class="swiper-button-prev mySwiper-prev"></div>
     </div>
 
   </div>
@@ -28,3 +28,15 @@
   </div>
 </div>
 
+<div class="container-products">
+  <div class="swiper productsSwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let product of products$ | async">
+        <app-product [product]="product" (redirectToProduct)="redirectTo($event)"></app-product>
+      </div>
+    </div>
+
+    <div class="swiper-button-next productsSwiper-next"></div>
+    <div class="swiper-button-prev productsSwiper-prev"></div>
+  </div>
+</div>

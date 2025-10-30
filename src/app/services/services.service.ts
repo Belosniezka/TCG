@@ -826,6 +826,10 @@ export class ShopService {
     });
   }
 
+  public getAllProducts() {
+    return this.http.get<Product[]>('http://localhost:3000/api/all-products');
+  }
+
   // public createProduct(product: Product): Observable<Product> {
   //   return this.http.post<Product>('http://localhost:3000/products/', product);
   // }

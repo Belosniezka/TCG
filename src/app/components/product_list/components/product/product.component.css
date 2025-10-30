@@ -1,7 +1,5 @@
 :host {
-  display: block;
-  transition: scale 0.3s linear;
-
+  transition: scale 0.2s linear;
 }
 
 .data {
@@ -29,7 +27,7 @@
   &.out-of-stock img {
     filter: grayscale(100%) brightness(60%);
   }
-  
+
   .overlay {
     position: absolute;
     top: 50%;
@@ -68,13 +66,21 @@
   flex-direction: column;
   align-items: center;
   color: #e85d41;
+  font-family: 'Lato', sans-serif;
 
   .title {
     text-align: center;
   }
+
 }
 
-.custom-action button {
-  color: #e85d41;
+.custom-action {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+
+  button {
+    color: #e85d41;
+  }
 }
 

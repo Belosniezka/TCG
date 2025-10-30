@@ -51,7 +51,13 @@
   }
 }
 
-.custom-action button {
-  color: #e85d41;
+.custom-action {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+
+  button {
+    color: #e85d41;
+  }
 }
 

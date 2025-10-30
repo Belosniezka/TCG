@@ -27,6 +27,7 @@
   padding: 4px;
   max-width: 100%;
   position: relative;
+  background-color: white;
 }
 
 .cart {
@@ -67,6 +68,11 @@
     background-color: #333;
     color: tomato;
   }
+}
+
+.price {
+  display: flex;
+  justify-content: space-between;
 }
 
 .divider {
